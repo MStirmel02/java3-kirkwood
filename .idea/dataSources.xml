@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="marc-kw-database@marc-kw.mysql.database.azure.com" uuid="8b4d30d0-562e-4d8f-9c6c-1b8523131251">
+    <data-source source="LOCAL" name="@mitchell-kw-server2.mysql.database.azure.com" uuid="5f9f7537-3ba9-410f-a96f-f047c5f11fe8">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://marc-kw.mysql.database.azure.com:3306/marc-kw-database?serverTimezone=UTC&amp;useSSL=true&amp;requireSSL=false</jdbc-url>
+      <jdbc-url>jdbc:mysql://mitchell-kw-server2.mysql.database.azure.com:3306?serverTimezone=UTC&amp;useSSL=true&amp;requireSSL=false</jdbc-url>
       <jdbc-additional-properties>
-        <property name="com.intellij.clouds.kubernetes.db.host.port" />
-        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
-        <property name="AZURE_SQL_DB_SERVER" value="/subscriptions/61c9da42-b916-41c9-ba1d-e2722cf959ee/resourceGroups/java-web/providers/Microsoft.DBforMySQL/flexibleServers/marc-kw" />
-        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+        <property name="AZURE_SQL_DB_SERVER" value="/subscriptions/d96ee9d0-0397-4767-bd3a-557a0dfb362d/resourceGroups/java-web/providers/Microsoft.DBforMySQL/flexibleServers/mitchell-kw-server2" />
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
