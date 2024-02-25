@@ -51,5 +51,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <hr class="my-4">
 </main>
 <%@include file="/WEB-INF/learnx/bottom.jsp"%>
