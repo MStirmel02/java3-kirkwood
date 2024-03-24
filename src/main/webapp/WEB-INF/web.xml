@@ -42,4 +42,8 @@
         <param-name>project1Name</param-name>
         <param-value>LearnX</param-value>
     </context-param>
+    <context-param>
+        <param-name>finalProjName</param-name>
+        <param-value>ChatApp</param-value>
+    </context-param>
 </web-app>

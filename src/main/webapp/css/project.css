@@ -31,11 +31,10 @@
 }
 
 #leftColumn {
-    background-color: aqua;
-    width: 10%;
+    width: 15%;
 }
 
 #rightColumn {
     background-color: darkcyan;
-    width: 90%;
+    width: 100%;
 }
