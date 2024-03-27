@@ -15,10 +15,10 @@ public class UserDAO extends Database{
             statement.setString(1, user.getUserID());
             statement.setString(2, user.getPasswordHash());
             if (user.getEmail() != null) {
-                statement.setString(3, user.getEmail());
-            }
-            int rowsAffected = statement.executeUpdate();
 
+                statement.setString(3, user.getEmail());
+
+            }
         } catch(SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());

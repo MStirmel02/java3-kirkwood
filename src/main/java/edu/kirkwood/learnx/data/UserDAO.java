@@ -2,19 +2,17 @@ package edu.kirkwood.learnx.data;
 
 import edu.kirkwood.learnx.model.User;
 import edu.kirkwood.shared.CommunicationService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class UserDAO extends Database {
-
-    public static void main(String[] args) {
-        getAll().forEach(System.out::println);
-    }
-    
     public static List<User> getAll() {
         List<User> users = new ArrayList<>();
         try(Connection connection = getConnection()) {
@@ -48,7 +46,7 @@ public class UserDAO extends Database {
     }
     public static User get(String email) {
         try(Connection connection = getConnection();
-        CallableStatement statement = connection.prepareCall("{CALL sp_get_user(?)}");
+            CallableStatement statement = connection.prepareCall("{CALL sp_get_user(?)}");
         ) {
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
@@ -75,7 +73,7 @@ public class UserDAO extends Database {
 
     public static String add(User user) {
         try(Connection connection = getConnection();
-        CallableStatement statement = connection.prepareCall("{CALL sp_add_user(?, ?)}")
+            CallableStatement statement = connection.prepareCall("{CALL sp_add_user(?, ?)}")
         ) {
             statement.setString(1, user.getEmail());
             String hashedPassword = BCrypt.hashpw(String.valueOf(user.getPassword()), BCrypt.gensalt(12));
@@ -86,16 +84,11 @@ public class UserDAO extends Database {
                     statement2.setString(1, user.getEmail());
                     ResultSet resultSet = statement2.executeQuery();
                     if(resultSet.next()) {
-                         String code = resultSet.getString("code");
-                         String method = resultSet.getString("method");
-                         if(method.equals("email")) {
-                             String subject = "LearnX New User";
-                             String message = "<h2>Welcome to LearnX</h2>";
-                             message += "<p>Please enter code <b>" + code + "</b> on the website to activate your account</p>";
-                             boolean sent = CommunicationService.sendEmail(user.getEmail(), subject, message);
-                             // To do: If the email is not send, delete the user by email and delete the 2fa
-                             return sent ? code : "";
-                         }
+                        String code = resultSet.getString("code");
+                        String method = resultSet.getString("method");
+                        if(method.equals("email")) {
+                            return CommunicationService.sendNewUserEmail(user.getEmail(), code);
+                        }
                     }
                 }
             }
@@ -105,10 +98,10 @@ public class UserDAO extends Database {
         }
         return "";
     }
-    
+
     public static void update(User user) {
         try(Connection connection = getConnection();
-        CallableStatement statement = connection.prepareCall("{CALL sp_update_user(?,?,?,?,?,?,?,?,?)}")
+            CallableStatement statement = connection.prepareCall("{CALL sp_update_user(?,?,?,?,?,?,?,?,?)}")
         ) {
             statement.setInt(1, user.getId());
             statement.setString(2, user.getFirstName());
@@ -125,25 +118,75 @@ public class UserDAO extends Database {
             System.out.println(e.getMessage());
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public static void delete(User user) {
+        try (Connection connection = getConnection()) {
+            if (connection != null) {
+                try (CallableStatement statement = connection.prepareCall("{CALL sp_delete_user(?)}")) {
+                    statement.setInt(1, user.getId());
+                    statement.executeUpdate();
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void passwordReset(String email, HttpServletRequest req) {
+        User userFromDatabase = UserDAO.get(email);
+        if(userFromDatabase != null) {
+            try(Connection connection = getConnection()) {
+                String uuid = String.valueOf(UUID.randomUUID());
+                try(CallableStatement statement = connection.prepareCall("{ CALL sp_add_password_reset(?, ?)}")) {
+                    statement.setString(1, email);
+                    statement.setString(2, uuid);
+                    statement.executeUpdate();
+                }
+                CommunicationService.sendPasswordResetEmail(email, uuid, req);
+            } catch(SQLException e) {
+                System.out.println("Likely error with stored procedure");
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    public static String  getPasswordReset(String token) {
+        String email = "";
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{ CALL sp_get_password_reset(?)}");
+        ) {
+            statement.setString(1, token);
+            try(ResultSet resultSet = statement.executeQuery()) {
+                if(resultSet.next()) {
+                    Instant now = Instant.now();
+                    Instant created_at = resultSet.getTimestamp("created_at").toInstant();
+                    Duration timeBetween = Duration.between(created_at, now);
+                    long minutesBetween = timeBetween.toMinutes();
+                    // To do: only return the email address if the minutes between is less than 30
+//                    System.out.println(minutesBetween);
+                    email = resultSet.getString("email");
+                    // To do: delete the token if the duration is over 30 minutes
+                }
+            }
+        } catch(SQLException e) {
+            System.out.println("Likely error with stored procedure");
+            System.out.println(e.getMessage());
+        }
+        return email;
+    }
+
+    public static void updatePassword(User user) {
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{ CALL sp_update_user_password(?, ?)}")
+        ) {
+            statement.setString(1, user.getEmail());
+            String hashedPassword = BCrypt.hashpw(String.valueOf(user.getPassword()), BCrypt.gensalt(12));
+            statement.setString(2, hashedPassword);
+            statement.executeUpdate();
+        } catch(SQLException e) {
+            System.out.println("Likely error with stored procedure");
+            System.out.println(e.getMessage());
+        }
+    }
 
 }

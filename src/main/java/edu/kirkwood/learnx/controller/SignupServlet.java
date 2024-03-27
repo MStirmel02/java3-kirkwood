@@ -73,7 +73,7 @@ public class SignupServlet extends HttpServlet {
         } else {
             results.put("agree", "true");
         }
-        /*
+
         if(!results.containsKey("emailError") &&
                 !results.containsKey("password1Error") &&
                 !results.containsKey("password2Error") &&
@@ -92,9 +92,9 @@ public class SignupServlet extends HttpServlet {
                 return;
             }
         }
-        */
 
-        
+
+
         
         req.setAttribute("results", results);
         req.setAttribute("pageTitle", "Sign up for an account");

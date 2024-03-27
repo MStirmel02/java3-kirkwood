@@ -7,16 +7,37 @@
         </div>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-dark">Home</a></li>
-            <li><a href="#" class="nav-link px-2">Features</a></li>
-            <li><a href="#" class="nav-link px-2">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2">FAQs</a></li>
-            <li><a href="#" class="nav-link px-2">About</a></li>
+            <li><a href="${appURL}/learnx" class="nav-link px-2 link-dark">Home</a></li>
+            <c:choose>
+
+                <c:when test="${sessionScope.activeUser.privileges eq 'student'}">
+                    <li><a href="#" class="nav-link px-2">Student Dashboard</a></li>
+                </c:when>
+
+                <c:when test="${sessionScope.activeUser.privileges eq 'teacher'}">
+                    <li><a href="#" class="nav-link px-2">Teacher Dashboard</a></li>
+                </c:when>
+
+                <c:when test="${sessionScope.activeUser.privileges eq 'admin'}">
+                    <li><a href="#" class="nav-link px-2">Admin Dashboard</a></li>
+                </c:when>
+
+            </c:choose>
+
         </ul>
 
         <div class="col-md-3 text-end">
-            <a href="" type="button" class="btn btn-outline-orange me-2">Login</a>
-            <a href="${appURL}/signup" type="button" class="btn btn-orange">Sign-up</a>
+            <c:choose>
+                <c:when test="${empty sessionScope.activeUser}">
+                    <a href="${appURL}/signin" class="btn btn-outline-orange me-2">Sign in</a>
+                    <a href="${appURL}/signup" class="btn btn-orange">Sign up</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="${appURL}/signout" class="btn btn-outline-orange me-2">Sign out</a>
+                    <a href="${appURL}/edit-profile" class="btn btn-orange">Edit Profile</a>
+                </c:otherwise>
+            </c:choose>
+
         </div>
     </header>
 </div>

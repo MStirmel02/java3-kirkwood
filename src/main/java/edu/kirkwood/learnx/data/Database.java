@@ -10,9 +10,9 @@ public class Database {
     public static Connection getConnection() {
         Dotenv dotenv = Dotenv.load();
         String db_full_driver = dotenv.get("DB_FULL_DRIVER");
-        String connectionString = dotenv.get("LEARNX_DB_CONNECTION");
+        String connectionString = dotenv.get("LEARNX_DB_CONN");
         String user = dotenv.get("DB_USER");
-        String password = dotenv.get("DB_PASSWORD");
+        String password = dotenv.get("DB_PASS");
         try {
             Class.forName(db_full_driver);
         } catch (ClassNotFoundException e) {
