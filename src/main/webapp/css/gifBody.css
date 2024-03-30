@@ -1,0 +1,5 @@
+body {
+    background-image: url('../images/project/gifsc.gif');
+    background-repeat:repeat;
+    backdrop-filter: blur(8px);
+}

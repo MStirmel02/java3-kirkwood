@@ -55,10 +55,10 @@ public class SignupServlet extends HttpServlet {
             results.put("emailError", e.getMessage());
         }
         //Removing database stuff as it is broken at the moment...
-        /*User userFromDatabase = UserDAO.get(email);
+        User userFromDatabase = UserDAO.get(email);
         if(userFromDatabase != null) {
             results.put("emailError", "User already exists");
-        }*/
+        }
         try {
             user.setPassword(password1.toCharArray());
         } catch(IllegalArgumentException e) {

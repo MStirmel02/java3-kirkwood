@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class Database {
     public static Connection getConnection() {
         Dotenv dotenv = Dotenv.load();
-        String db_full_driver = dotenv.get("DB_DRIVER");
+        String db_full_driver = dotenv.get("DB_FULL_DRIVER");
         String connectionString = dotenv.get("DB_CONN");
         String user = dotenv.get("DB_USER");
         String password = dotenv.get("DB_PASS");

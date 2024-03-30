@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
-<html>
+<html lang="en" class="data-bs-theme-dark">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -14,7 +14,7 @@
     <script src="${appURL}/js/loading.js"></script>
 
 </head>
-    <header class="p-3 text-bg-dark">
+    <header class="p-3 text-bg-dark border-bottom border-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -30,8 +30,8 @@
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <a href="${appURL}/login" class="btn btn-outline-light me-2">Log In</a>
+                    <a href="${appURL}/signingup" class="btn btn-warning">Sign Up</a>
                 </div>
             </div>
         </div>
