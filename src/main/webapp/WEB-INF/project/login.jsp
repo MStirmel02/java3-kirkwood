@@ -33,7 +33,7 @@
                                     <label for="inputUser1" class="form-label">Username *</label>
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-text text-white bg-dark rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
-                                        <input type="text" class="form-control form-control-dark text-bg-dark rounded-end ps-1" placeholder="E-mail" id="inputUser1" name="inputUser1"  value="${results.userName}">
+                                        <input type="text" class="form-control form-control-dark text-bg-dark rounded-end ps-1" placeholder="Username" id="inputUser1" name="inputUser1"  value="${results.username}">
                                     </div>
                                 </div>
                                 <!-- Password -->

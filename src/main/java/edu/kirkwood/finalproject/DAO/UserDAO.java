@@ -63,12 +63,12 @@ public class UserDAO extends Database{
         return false;
     }
 
-    public static UserModel GetUser(String email) {
+    public static UserModel GetUser(String username) {
         UserModel user = new UserModel();
         try(Connection connection = getConnection();
             CallableStatement statement = connection.prepareCall("{CALL sp_get_user(?, ?)}")
         ) {
-            statement.setString(1, email);
+            statement.setString(1, username);
             try(ResultSet resultSet = statement.executeQuery()) {
                 if(resultSet.next()) {
                     user.setUserID(resultSet.getString("UserID"));
