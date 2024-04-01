@@ -1,27 +1,28 @@
 package edu.kirkwood.finalproject.models;
 
+import java.sql.Time;
 import java.time.Instant;
 
 public class UserModel {
     public String UserID;
     private String PasswordHash;
     private String Email;
-    private Instant LastLoggedIn;
-    private Instant DateCreated;
+    private Time LastLoggedIn;
+    private Time DateCreated;
 
-    public Instant getLastLoggedIn() {
+    public Time getLastLoggedIn() {
         return LastLoggedIn;
     }
 
-    public void setLastLoggedIn(Instant lastLoggedIn) {
+    public void setLastLoggedIn(Time lastLoggedIn) {
         LastLoggedIn = lastLoggedIn;
     }
 
-    public Instant getDateCreated() {
+    public Time getDateCreated() {
         return DateCreated;
     }
 
-    public void setDateCreated(Instant dateCreated) {
+    public void setDateCreated(Time dateCreated) {
         DateCreated = dateCreated;
     }
 

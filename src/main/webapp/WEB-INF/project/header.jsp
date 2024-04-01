@@ -25,13 +25,17 @@
                     <li><a href="${appURL}/home" class="nav-link px-2 text-white">Home</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-                </form>
-
                 <div class="text-end">
-                    <a href="${appURL}/login" class="btn btn-outline-light me-2">Log In</a>
-                    <a href="${appURL}/signingup" class="btn btn-warning">Sign Up</a>
+                    <c:choose>
+                        <c:when test="${empty sessionScope.activeUser}">
+                            <a href="${appURL}/login" class="btn btn-outline-light me-2">Log In</a>
+                            <a href="${appURL}/signingup" class="btn btn-warning">Sign Up</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${appURL}/signout" class="btn btn-outline-danger me-2">Sign out</a>
+                            <a href="${appURL}/profile" class="btn btn-secondary"><c:out value="${sessionScope.activeUser.getUserID()}" /></a>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>

@@ -26,12 +26,9 @@ public class UserDAO extends Database{
         ) {
             statement.setString(1, user.getUserID());
             statement.setString(2, user.getPasswordHash());
-            if (user.getEmail() != null) {
 
-                statement.setString(3, user.getEmail());
-
-            }
             statement.executeUpdate();
+            return true;
         } catch(SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());
@@ -66,22 +63,22 @@ public class UserDAO extends Database{
     public static UserModel GetUser(String username) {
         UserModel user = new UserModel();
         try(Connection connection = getConnection();
-            CallableStatement statement = connection.prepareCall("{CALL sp_get_user(?, ?)}")
+            CallableStatement statement = connection.prepareCall("{CALL sp_get_user(?)}")
         ) {
             statement.setString(1, username);
             try(ResultSet resultSet = statement.executeQuery()) {
                 if(resultSet.next()) {
                     user.setUserID(resultSet.getString("UserID"));
                     user.setEmail(resultSet.getString("Email"));
-                    user.setDateCreated(resultSet.getTime("DateCreated").toInstant());
-                    user.setLastLoggedIn(resultSet.getTime("LastLoggedIn").toInstant());
+                    user.setDateCreated(resultSet.getTime("DateCreated"));
+                    user.setLastLoggedIn(resultSet.getTime("LastLoggedIn"));
                 }
             }
         } catch(SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());
         }
-        return new UserModel();
+        return user;
     }
 
     public static boolean UpdateLastLogin(String userID) {
@@ -91,6 +88,7 @@ public class UserDAO extends Database{
             statement.setString(1, userID);
 
             statement.executeUpdate();
+            return true;
         } catch(SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());

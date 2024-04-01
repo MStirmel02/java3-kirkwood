@@ -41,12 +41,12 @@ public class SigningupServlet extends HttpServlet {
         try {
             user.setUserID(username);
         } catch(IllegalArgumentException e) {
-            results.put("emailError", e.getMessage());
+            results.put("userError", e.getMessage());
         }
-        //Removing database stuff as it is broken at the moment...
+
         UserModel userFromDatabase = UserDAO.GetUser(username);
-        if(userFromDatabase != null) {
-            results.put("emailError", "User already exists");
+        if(userFromDatabase.UserID != null) {
+            results.put("userError", "User already exists");
         }
         try {
             // hash this
@@ -67,15 +67,14 @@ public class SigningupServlet extends HttpServlet {
             results.put("agree", "true");
         }
 
-        if(!results.containsKey("emailError") &&
+        if(!results.containsKey("userError") &&
                 !results.containsKey("password1Error") &&
                 !results.containsKey("password2Error") &&
-                !results.containsKey("agreeError") &&
-                !results.containsKey("birthdayError")
+                !results.containsKey("agreeError")
         ) {
             boolean result = UserDAO.SignUp(user);
             // To do: if the email is sent, redirect to a page for the user to enter their code.
-            if(!result) {
+            if(result) {
                 HttpSession session = req.getSession();
                 session.invalidate(); // Remove any existing session data
                 session = req.getSession();
@@ -91,6 +90,6 @@ public class SigningupServlet extends HttpServlet {
 
         req.setAttribute("results", results);
         req.setAttribute("pageTitle", "Sign up for an account");
-        req.getRequestDispatcher("WEB-INF/learnx/signup.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/project/signingup.jsp").forward(req, resp);
     }
 }
