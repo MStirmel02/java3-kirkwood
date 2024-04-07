@@ -38,3 +38,14 @@
     background-color: darkcyan;
     width: 100%;
 }
+
+.carousel-caption {
+    margin-bottom: 350px;
+}
+.carousel-caption h5 {
+    font-size: 40px;
+    font-weight: bold;
+}
+.carousel-caption p {
+    font-size: 20px;
+}

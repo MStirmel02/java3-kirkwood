@@ -5,7 +5,11 @@ public class ChannelModel {
     private int UsersInChannel;
     private String ChannelHash;
     private boolean Deleted;
+    private String UserRole;
 
+    public String getUserRole() {return UserRole;}
+
+    public void setUserRole(String userRole) {UserRole = userRole;}
     public String getChannelID() {
         return ChannelID;
     }

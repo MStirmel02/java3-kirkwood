@@ -13,26 +13,13 @@
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
-                    Placeholder
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link text-white">
-                    Items
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link text-white">
-                    For
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link text-white">
-                    List
-                </a>
-            </li>
+            <c:forEach items="${channelList}" var="channel">
+                <li class="nav-item">
+                    <a href="homepage.jsp" class="nav-link active">
+                        ${channel.getChannelID()}
+                    </a>
+                </li>
+            </c:forEach>
         </ul>
     </div>
     <div class="column" id="rightColumn">

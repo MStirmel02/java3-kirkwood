@@ -12,7 +12,7 @@
             <h3>Personal Projects</h3>
             <div class="list-group">
                 <a href="${appURL}/email" class="list-group-item list-group-item-action">Email</a>
-                <a href="${appURL}/home" class="list-group-item list-group-item-action">Java 3 Project</a>
+                <a href="${appURL}/landing" class="list-group-item list-group-item-action">Java 3 Project</a>
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-lg-5">
@@ -24,6 +24,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

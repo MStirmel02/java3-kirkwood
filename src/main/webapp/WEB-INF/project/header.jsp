@@ -32,7 +32,7 @@
                             <a href="${appURL}/signingup" class="btn btn-warning">Sign Up</a>
                         </c:when>
                         <c:otherwise>
-                            <a href="${appURL}/signout" class="btn btn-outline-danger me-2">Sign out</a>
+                            <a href="${appURL}/signingout" class="btn btn-outline-danger me-2">Sign out</a>
                             <a href="${appURL}/profile" class="btn btn-secondary"><c:out value="${sessionScope.activeUser.getUserID()}" /></a>
                         </c:otherwise>
                     </c:choose>

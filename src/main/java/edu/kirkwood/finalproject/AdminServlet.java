@@ -8,12 +8,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-
-@WebServlet("/landing")
-public class LandingServlet extends HttpServlet {
+@WebServlet("/admin")
+public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("WEB-INF/project/landing.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/project/admin.jsp").forward(req, resp);
 
     }
 
@@ -21,4 +20,5 @@ public class LandingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
     }
+
 }

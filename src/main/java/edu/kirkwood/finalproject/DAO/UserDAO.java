@@ -1,7 +1,6 @@
 package edu.kirkwood.finalproject.DAO;
 
 import edu.kirkwood.finalproject.models.UserModel;
-import edu.kirkwood.learnx.model.User;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
