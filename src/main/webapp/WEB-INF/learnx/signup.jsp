@@ -50,19 +50,6 @@
                                         </c:if>
                                     </div>
                                 </div>
-                                <!-- Birthday -->
-                                <div class="mb-4">
-                                    <label for="inputBirthday" class="form-label">Date of Birth *</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fa fa-calendar"></i></span>
-                                        <input type="text" class="form-control border-0 bg-light rounded-end ps-1 <c:if test="${not empty results.birthdayError}">is-invalid</c:if>" placeholder="MM-DD-YYYY" id="inputBirthday" name="inputBirthday"  value="${results.birthday}">
-                                        <c:if test="${not empty results.birthdayError}">
-                                            <div class="invalid-feedback">
-                                                    ${results.birthdayError}
-                                            </div>
-                                        </c:if>
-                                    </div>
-                                </div>
                                 <!-- Check box -->
                                 <div class="mb-4">
                                     <div class="form-check">

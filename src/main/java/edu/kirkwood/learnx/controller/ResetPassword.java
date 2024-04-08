@@ -28,11 +28,11 @@ public class ResetPassword extends HttpServlet {
             UserDAO.passwordReset(email, req);
             results.put("passwordResetMsg", "If there is an account with the email entered, we will send a password reset link");
         }
-
-
+        
+        
         req.setAttribute("results", results);
         req.setAttribute("pageTitle", "Reset your password");
         req.getRequestDispatcher("WEB-INF/learnx/reset-password.jsp").forward(req, resp);
-
+        
     }
 }

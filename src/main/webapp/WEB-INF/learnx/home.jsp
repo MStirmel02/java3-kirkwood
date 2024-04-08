@@ -8,20 +8,23 @@
             </div>
             <c:remove var="flashMessageSuccess" scope="session"></c:remove>
         </c:when>
+        <c:when test="${not empty flashMessageWarning}">
+            <div class="alert alert-warning mb-2">
+                    ${flashMessageWarning}
+            </div>
+            <c:remove var="flashMessageWarning" scope="session"></c:remove>
+        </c:when>
+        <c:when test="${not empty flashMessageDanger}">
+            <div class="alert alert-danger mb-2">
+                    ${flashMessageDanger}
+            </div>
+            <c:remove var="flashMessageDanger" scope="session"></c:remove>
+        </c:when>
     </c:choose>
     
 <%--    JUMBOTRON CODE HERE --%>
-        <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </div>
-
-
-
-    <div id="carouselExampleCaptions" class="carousel slide mb-4">
+    
+    <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -51,22 +54,5 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="row align-items-md-stretch">
-        <div class="col-md-6">
-            <div class="h-100 p-5 text-bg-dark rounded-3">
-                <h2>Change the background</h2>
-                <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
-                <button class="btn btn-outline-light" type="button">Example button</button>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                <h2>Add borders</h2>
-                <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-                <button class="btn btn-outline-secondary" type="button">Example button</button>
-            </div>
-        </div>
-    </div>
-
 </main>
 <%@include file="/WEB-INF/learnx/bottom.jsp"%>

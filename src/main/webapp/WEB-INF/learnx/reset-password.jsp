@@ -29,7 +29,7 @@
                                         <input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="inputEmail1" name="inputEmail1"  value="${results.email}">
                                     </div>
                                 </div>
-
+                                
                                 <!-- Button -->
                                 <div class="align-items-center mt-0">
                                     <div class="d-grid">

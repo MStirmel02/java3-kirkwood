@@ -14,7 +14,7 @@
 
                         <c:if test="${not empty flashMessageSuccess}">
                             <div class="alert alert-success">
-                                    ${flashMessageSuccess}
+                               ${flashMessageSuccess}
                             </div>
                             <c:remove var="flashMessageSuccess"></c:remove>
                         </c:if>
@@ -33,13 +33,13 @@
                                     <label for="firstNameInput" class="form-label">First Name</label>
                                     <input type="text" class="form-control" id="firstNameInput" name="firstNameInput" value="${fn:escapeXml(activeUser.firstName)}">
                                 </div>
-
+    
                                 <!-- Last name-->
                                 <div class="col-md-6">
                                     <label for="lastNameInput" class="form-label">Last Name</label>
                                     <input type="text" class="form-control" id="lastNameInput" name="lastNameInput" value="${fn:escapeXml(activeUser.lastName)}">
                                 </div>
-
+    
                                 <div class="col-md-6">
                                     <label for="languageInput" class="form-label">Language</label>
                                     <select name="languageInput" id="languageInput" class="form-select <c:if test="${not empty results.languageError}">is-invalid</c:if>">
@@ -49,7 +49,7 @@
                                     </select>
                                     <c:if test="${not empty results.languageError}">
                                         <div class="invalid-feedback">
-                                                ${results.languageError}
+                                            ${results.languageError}
                                         </div>
                                     </c:if>
                                 </div>
@@ -59,12 +59,12 @@
                                     <select name="languageInput" id="timezoneInput" class="form-select">
                                     </select>
                                 </div>
-
+    
                                 <!-- Save button -->
                                 <div class="d-sm-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary mb-0">Save changes</button>
                                 </div>
-
+    
                             </div>
                         </form>
                     </div>

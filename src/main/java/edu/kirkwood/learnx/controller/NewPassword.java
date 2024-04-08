@@ -67,10 +67,11 @@ public class NewPassword extends HttpServlet {
                 resp.sendRedirect("learnx");
                 return;
             }
-
+            
             req.setAttribute("results", results);
             req.setAttribute("pageTitle", "New Password");
             req.getRequestDispatcher("WEB-INF/learnx/new-password.jsp").forward(req, resp);
         }
     }
 }
+

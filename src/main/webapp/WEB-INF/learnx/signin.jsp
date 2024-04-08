@@ -7,7 +7,7 @@
                     <div class="row my-5">
                         <div class="col-sm-10 col-xl-8 m-auto">
                             <h2>Nice to see you!</h2>
-
+                            
                             <c:choose>
                                 <c:when test="${not empty results.loginError}">
                                     <p class="alert alert-danger">
@@ -43,7 +43,7 @@
                                         <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" id="inputPassword1" name="inputPassword1"  value="${results.password1}">
                                     </div>
                                 </div>
-
+                                
                                 <!-- Check box -->
                                 <div class="mb-4">
                                     <div class="form-check">
@@ -59,7 +59,7 @@
                                 </div>
 
                                 <input type="hidden" name="redirect" value="${redirect}">
-
+                                
                             </form>
                             <!-- Form END -->
 

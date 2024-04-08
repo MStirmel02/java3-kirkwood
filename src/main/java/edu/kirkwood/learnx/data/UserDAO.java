@@ -13,6 +13,11 @@ import java.util.List;
 import java.util.UUID;
 
 public class UserDAO extends Database {
+
+    public static void main(String[] args) {
+        getAll().forEach(System.out::println);
+    }
+    
     public static List<User> getAll() {
         List<User> users = new ArrayList<>();
         try(Connection connection = getConnection()) {
@@ -46,7 +51,7 @@ public class UserDAO extends Database {
     }
     public static User get(String email) {
         try(Connection connection = getConnection();
-            CallableStatement statement = connection.prepareCall("{CALL sp_get_user(?)}");
+        CallableStatement statement = connection.prepareCall("{CALL sp_get_user(?)}");
         ) {
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
@@ -73,7 +78,7 @@ public class UserDAO extends Database {
 
     public static String add(User user) {
         try(Connection connection = getConnection();
-            CallableStatement statement = connection.prepareCall("{CALL sp_add_user(?, ?)}")
+        CallableStatement statement = connection.prepareCall("{CALL sp_add_user(?, ?)}")
         ) {
             statement.setString(1, user.getEmail());
             String hashedPassword = BCrypt.hashpw(String.valueOf(user.getPassword()), BCrypt.gensalt(12));
@@ -84,11 +89,11 @@ public class UserDAO extends Database {
                     statement2.setString(1, user.getEmail());
                     ResultSet resultSet = statement2.executeQuery();
                     if(resultSet.next()) {
-                        String code = resultSet.getString("code");
-                        String method = resultSet.getString("method");
-                        if(method.equals("email")) {
-                            return CommunicationService.sendNewUserEmail(user.getEmail(), code);
-                        }
+                         String code = resultSet.getString("code");
+                         String method = resultSet.getString("method");
+                         if(method.equals("email")) {
+                             return CommunicationService.sendNewUserEmail(user.getEmail(), code);
+                         }
                     }
                 }
             }
@@ -98,10 +103,10 @@ public class UserDAO extends Database {
         }
         return "";
     }
-
+    
     public static void update(User user) {
         try(Connection connection = getConnection();
-            CallableStatement statement = connection.prepareCall("{CALL sp_update_user(?,?,?,?,?,?,?,?,?)}")
+        CallableStatement statement = connection.prepareCall("{CALL sp_update_user(?,?,?,?,?,?,?,?,?)}")
         ) {
             statement.setInt(1, user.getId());
             statement.setString(2, user.getFirstName());
@@ -131,7 +136,7 @@ public class UserDAO extends Database {
             throw new RuntimeException(e);
         }
     }
-
+    
     public static void passwordReset(String email, HttpServletRequest req) {
         User userFromDatabase = UserDAO.get(email);
         if(userFromDatabase != null) {
@@ -149,7 +154,7 @@ public class UserDAO extends Database {
             }
         }
     }
-
+    
     public static String  getPasswordReset(String token) {
         String email = "";
         try(Connection connection = getConnection();
@@ -188,5 +193,21 @@ public class UserDAO extends Database {
             System.out.println(e.getMessage());
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

@@ -81,6 +81,10 @@ public class User {
     }
 
     public void setPhone(String phone) {
+        Matcher matcher = MyValidator.phonePattern.matcher(phone);
+        if(!matcher.matches()) {
+            throw new IllegalArgumentException("Invalid phone number");
+        }
         this.phone = phone;
     }
 
@@ -89,11 +93,14 @@ public class User {
     }
 
     public void setPassword(char[] password) {
-        String passwordStr = String.valueOf(password);
-        Matcher matcher = MyValidator.passwordPattern.matcher(passwordStr);
-        if(!matcher.matches()) {
-            throw new IllegalArgumentException("Password must have minimum 8 characters and 3 of 4 (uppercase, lowercase, digit, symbol)");
+        if(password != null) {
+            String passwordStr = String.valueOf(password);
+            Matcher matcher = MyValidator.passwordPattern.matcher(passwordStr);
+            if (!matcher.matches()) {
+                throw new IllegalArgumentException("Password must have minimum 8 characters and 3 of 4 (uppercase, lowercase, digit, symbol)");
+            }
         }
+        // Password can be set to null before the user is set as a session attribute
         this.password = password;
     }
 
@@ -102,6 +109,10 @@ public class User {
     }
 
     public void setLanguage(String language) {
+        Matcher matcher = MyValidator.languagePattern.matcher(language);
+        if(!matcher.matches()) {
+            throw new IllegalArgumentException("Invalid language");
+        }
         this.language = language;
     }
 
