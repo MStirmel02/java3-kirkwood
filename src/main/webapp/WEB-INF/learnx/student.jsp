@@ -15,36 +15,39 @@
                             <span class="display-6 lh-1 text-orange mb-0"><i class="fas fa-tv fa-fw"></i></span>
                             <div class="ms-4">
                                 <div class="d-flex">
-                                    <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="9"	data-purecounter-delay="200">0</h5>
+                                    <h5 class="purecounter mb-0 fw-bold"
+                                        data-purecounter-start="0"
+                                        data-purecounter-end="${fn:length(enrollments)}"
+                                        data-purecounter-delay="200"></h5>
                                 </div>
                                 <p class="mb-0 h6 fw-light">Total Courses</p>
                             </div>
                         </div>
                     </div>
                     <!-- Counter item -->
-<%--                    <div class="col-sm-6 col-lg-4 mb-3 mb-lg-0">--%>
-<%--                        <div class="d-flex justify-content-center align-items-center p-4 bg-purple bg-opacity-15 rounded-3">--%>
-<%--                            <span class="display-6 lh-1 text-purple mb-0"><i class="fas fa-clipboard-check fa-fw"></i></span>--%>
-<%--                            <div class="ms-4">--%>
-<%--                                <div class="d-flex">--%>
-<%--                                    <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="52"	data-purecounter-delay="200">0</h5>--%>
-<%--                                </div>--%>
-<%--                                <p class="mb-0 h6 fw-light">Lessons Complete</p>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+                    <%--                    <div class="col-sm-6 col-lg-4 mb-3 mb-lg-0">--%>
+                    <%--                        <div class="d-flex justify-content-center align-items-center p-4 bg-purple bg-opacity-15 rounded-3">--%>
+                    <%--                            <span class="display-6 lh-1 text-purple mb-0"><i class="fas fa-clipboard-check fa-fw"></i></span>--%>
+                    <%--                            <div class="ms-4">--%>
+                    <%--                                <div class="d-flex">--%>
+                    <%--                                    <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="52"	data-purecounter-delay="200">0</h5>--%>
+                    <%--                                </div>--%>
+                    <%--                                <p class="mb-0 h6 fw-light">Lessons Complete</p>--%>
+                    <%--                            </div>--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
                     <!-- Counter item -->
-<%--                    <div class="col-sm-6 col-lg-4 mb-3 mb-lg-0">--%>
-<%--                        <div class="d-flex justify-content-center align-items-center p-4 bg-success bg-opacity-10 rounded-3">--%>
-<%--                            <span class="display-6 lh-1 text-success mb-0"><i class="fas fa-medal fa-fw"></i></span>--%>
-<%--                            <div class="ms-4">--%>
-<%--                                <div class="d-flex">--%>
-<%--                                    <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="8" data-purecounter-delay="300">0</h5>--%>
-<%--                                </div>--%>
-<%--                                <p class="mb-0 h6 fw-light">Course Certificates</p>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
+                    <%--                    <div class="col-sm-6 col-lg-4 mb-3 mb-lg-0">--%>
+                    <%--                        <div class="d-flex justify-content-center align-items-center p-4 bg-success bg-opacity-10 rounded-3">--%>
+                    <%--                            <span class="display-6 lh-1 text-success mb-0"><i class="fas fa-medal fa-fw"></i></span>--%>
+                    <%--                            <div class="ms-4">--%>
+                    <%--                                <div class="d-flex">--%>
+                    <%--                                    <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="8" data-purecounter-delay="300">0</h5>--%>
+                    <%--                                </div>--%>
+                    <%--                                <p class="mb-0 h6 fw-light">Course Certificates</p>--%>
+                    <%--                            </div>--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
                 </div>
                 <!-- Counter boxes END -->
 
@@ -86,44 +89,30 @@
                                 <thead>
                                 <tr>
                                     <th scope="col" class="border-0 rounded-start">Course Title</th>
-<%--                                    <th scope="col" class="border-0">Total Lessons</th>--%>
-<%--                                    <th scope="col" class="border-0">Completed Lessons</th>--%>
-<%--                                    <th scope="col" class="border-0 rounded-end">Percent Complete</th>--%>
+                                    <%--                                    <th scope="col" class="border-0">Total Lessons</th>--%>
+                                    <%--                                    <th scope="col" class="border-0">Completed Lessons</th>--%>
+                                    <%--                                    <th scope="col" class="border-0 rounded-end">Percent Complete</th>--%>
                                 </tr>
                                 </thead>
                                 <!-- Table body START -->
                                 <tbody>
 
-                                <!-- Table item -->
-                                <tr>
-                                    <!-- Table data -->
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="mb-0 ms-2">
-                                                <!-- Title -->
-                                                <h6><a href="#">Course Name</a></h6>
+                                <c:forEach items="${enrollments}" var="enrollment">
+                                    <!-- Table item -->
+                                    <tr>
+                                        <!-- Table data -->
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="mb-0 ms-2">
+                                                    <!-- Title -->
+                                                        <%--                                                enrollment.key returns a Course --%>
+                                                    <h6><a href="#">${enrollment.key.name}</a></h6>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
 
-                                    <!-- Table data -->
-<%--                                    <td>56</td>--%>
-
-                                    <!-- Table data -->
-<%--                                    <td>40</td>--%>
-
-                                    <!-- Table data -->
-<%--                                    <td>--%>
-<%--                                        <!-- Info -->--%>
-<%--                                        <div class="overflow-hidden">--%>
-<%--                                            <h6 class="mb-0">85%</h6>--%>
-<%--                                            <div class="progress progress-sm bg-primary bg-opacity-10">--%>
-<%--                                                <div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </td>--%>
-                                </tr>
+                                    </tr>
+                                </c:forEach>
 
                                 </tbody>
                                 <!-- Table body END -->

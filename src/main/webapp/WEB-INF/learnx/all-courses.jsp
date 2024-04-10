@@ -68,10 +68,20 @@ Page content START -->
                                                     <p class="mb-0 ms-2">Taught by: ${course.teacherFirstName}&nbsp;${course.teacherLastName}</p>
                                                 </div>
                                                 <c:if test="${activeUser.privileges eq 'student'}">
-                                                <!-- Enroll -->
-                                                <div class="mt-3 mt-sm-0">
-                                                    <a href="${appURL}/enroll?course=${course.id}" class="btn btn-dark">Enroll</a>
-                                                </div>
+                                                    <c:choose>
+                                                        <c:when test="${enrolledCourses.containsKey(course)}">
+                                                            <!-- Enrolled -->
+                                                            <div class="mt-3 mt-sm-0">
+                                                                <a href="#" class="btn btn-dark disabled">Enrolled</a>
+                                                            </div>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <!-- Enroll -->
+                                                            <div class="mt-3 mt-sm-0">
+                                                                <a href="${appURL}/enroll?course=${course.id}" class="btn btn-dark">Enroll</a>
+                                                            </div>
+                                                        </c:otherwise>
+                                                    </c:choose>
                                                 </c:if>
                                             </div>
                                         </div>

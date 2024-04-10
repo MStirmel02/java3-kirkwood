@@ -7,8 +7,10 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 import java.util.concurrent.Callable;
 
 public class CourseDAO extends Database {
@@ -85,6 +87,37 @@ public class CourseDAO extends Database {
             
         }
         return false;
+    }
+
+    public static TreeMap<Course, Instant> getCoursesEnrolled(int limit, int offset, int userId) {
+        TreeMap<Course, Instant> enrollments = new TreeMap<>();
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_get_courses_by_student(?,?,?)}");
+        ) {
+            statement.setInt(1, limit);
+            statement.setInt(2, offset);
+            statement.setInt(3, userId);
+            try(ResultSet resultSet = statement.executeQuery()) {
+                while(resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String name = resultSet.getString("name");
+                    String description = resultSet.getString("description");
+                    String level = resultSet.getString("level");
+                    String picture = resultSet.getString("picture");
+                    String first_name = resultSet.getString("first_name");
+                    String last_name = resultSet.getString("last_name");
+                    int category_id = resultSet.getInt("category_id");
+                    String category_name = resultSet.getString("category_name");
+                    Course course = new Course(id, name, description, level, picture, first_name,
+                            last_name, category_id, category_name);
+                    Instant enrollmentDate = resultSet.getTimestamp("enrollment_date").toInstant();
+                    enrollments.put(course, enrollmentDate);
+                }
+            }
+        } catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return enrollments;
     }
     
 
