@@ -65,6 +65,7 @@
                                     <button class="dropdown-item text-danger" name="channel" value="${channel.getChannelID()}">Leave Channel</button>
                                     <input type="hidden" name="formtype" value="leave">
                                 </form>
+                            </li>
                         </ul>
                     </div>
                 </li>

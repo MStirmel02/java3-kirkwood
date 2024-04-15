@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet("/profile")
 public class ProfileServlet extends HttpServlet {
@@ -20,6 +19,7 @@ public class ProfileServlet extends HttpServlet {
         HttpSession session = req.getSession();
         UserModel user = (UserModel) session.getAttribute("activeUser");
 
+        req.setAttribute("activeUser", user);
         req.getRequestDispatcher("WEB-INF/project/profile.jsp").forward(req, resp);
     }
 

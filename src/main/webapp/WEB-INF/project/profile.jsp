@@ -1,16 +1,58 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: camom
-  Date: 4/14/2024
-  Time: 22:18
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@include file="header.jsp" %>
 
-</body>
-</html>
+<main>
+    <%@include file="/WEB-INF/project/profilesideheader.jsp"%>
+    <div class="container">
+        <div class="row">
+            <%@include file="/WEB-INF/project/profilesidebar.jsp"%>
+            <div class="col-xl-9">
+                <div class="card border rounded-3">
+                    <div class="card-body">
+
+                        <c:if test="${not empty flashMessageWarning}">
+                            <div class="alert alert-warning">
+                                    ${flashMessageWarning}
+                            </div>
+                            <c:remove var="flashMessageWarning"></c:remove>
+                        </c:if>
+
+
+                        <form action="${appURL}/profile" method="POST">
+                            <div class="row g-4">
+                                <!-- First Name -->
+                                <div class="col-md-6">
+                                    <label for="firstNameInput" class="form-label">Email Address</label>
+                                    <input type="text" class="form-control" id="firstNameInput" name="firstNameInput" value="${fn:escapeXml(activeUser.getEmail())}">
+                                </div>
+
+                                <!-- Save button -->
+                                <div class="d-sm-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary mb-0">Save changes</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%@include file="footer.jsp" %>

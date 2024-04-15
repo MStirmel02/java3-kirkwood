@@ -35,7 +35,7 @@
                         </c:when>
                         <c:otherwise>
                             <a href="${appURL}/signingout" class="btn btn-outline-danger me-2">Sign out</a>
-                            <a href="${appURL}/profile" class="btn btn-secondary"></a>
+                            <a href="${appURL}/profile" class="btn btn-secondary">${activeUser.getUserID()}</a>
                         </c:otherwise>
                     </c:choose>
                 </div>

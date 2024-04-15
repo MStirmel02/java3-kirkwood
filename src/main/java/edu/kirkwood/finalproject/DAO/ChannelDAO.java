@@ -21,17 +21,15 @@ public class ChannelDAO extends Database {
         ) {
             statement.setString(1, userID);
             try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
-                    do {
-                        String channelID = resultSet.getString("ChannelID");
-                        int usersInChannel = resultSet.getInt("UsersInChannel");
-                        String roleID = resultSet.getString("RoleID");
-                        ChannelModel channel = new ChannelModel();
-                        channel.setChannelID(channelID);
-                        channel.setUsersInChannel(usersInChannel);
-                        channel.setUserRole(roleID);
-                        channelList.add(channel);
-                    } while (!resultSet.isLast());
+                while(resultSet.next()) {
+                    String channelID = resultSet.getString("ChannelID");
+                    int usersInChannel = resultSet.getInt("UsersInChannel");
+                    String roleID = resultSet.getString("RoleID");
+                    ChannelModel channel = new ChannelModel();
+                    channel.setChannelID(channelID);
+                    channel.setUsersInChannel(usersInChannel);
+                    channel.setUserRole(roleID);
+                    channelList.add(channel);
                 }
             }
         } catch (SQLException e) {
@@ -84,5 +82,27 @@ public class ChannelDAO extends Database {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+
+    public static ArrayList<ChannelModel> AllChannels() {
+        ArrayList<ChannelModel> channelList = new ArrayList<ChannelModel>();
+        try (Connection connection = getConnection();
+             CallableStatement statement = connection.prepareCall("{CALL sp_view_all_channels()}")
+        ) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while(resultSet.next()) {
+                    String channelID = resultSet.getString("ChannelID");
+                    int usersInChannel = resultSet.getInt("UsersInChannel");
+                    ChannelModel channel = new ChannelModel();
+                    channel.setChannelID(channelID);
+                    channel.setUsersInChannel(usersInChannel);
+                    channelList.add(channel);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+        }
+        return channelList;
     }
 }

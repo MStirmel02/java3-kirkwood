@@ -17,18 +17,15 @@ public class MessageDAO extends Database {
         ) {
             statement.setString(1, channelID);
             try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
-                    do {
-                        String userID = resultSet.getString("UserID");
-                        String content = resultSet.getString("Content");
-                        Time timeSent = resultSet.getTime("TimeSent");
-                        MessageModel message = new MessageModel();
-                        message.setUserID(userID);
-                        message.setContent(content);
-                        message.setTimeSent(timeSent);
-                        messageList.add(message);
-
-                    } while (!resultSet.isLast());
+                while(resultSet.next()) {
+                    String userID = resultSet.getString("UserID");
+                    String content = resultSet.getString("Content");
+                    Time timeSent = resultSet.getTime("TimeSent");
+                    MessageModel message = new MessageModel();
+                    message.setUserID(userID);
+                    message.setContent(content);
+                    message.setTimeSent(timeSent);
+                    messageList.add(message);
                 }
             }
         } catch (SQLException e) {
