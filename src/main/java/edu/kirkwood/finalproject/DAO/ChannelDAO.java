@@ -49,11 +49,7 @@ public class ChannelDAO extends Database {
             statement.setString(2, channelID);
             statement.setString(3, channelHash);
             int count = statement.executeUpdate();
-            if (count == 1) {
-                return true;
-            } else {
-                return false;
-            }
+            return count == 1;
         } catch (SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());
@@ -76,4 +72,17 @@ public class ChannelDAO extends Database {
         }
     }
 
+    public static boolean ChannelLeave(String userID, String channelID) {
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_user_channel_sign_out(?, ?)}")
+        ) {
+            statement.setString(1, userID);
+            statement.setString(2, channelID);
+            return statement.execute();
+        } catch(SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 }

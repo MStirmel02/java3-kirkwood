@@ -51,7 +51,7 @@ public class UserDAO extends Database {
     }
     public static User get(String email) {
         try(Connection connection = getConnection();
-        CallableStatement statement = connection.prepareCall("{CALL sp_get_user(?)}");
+        CallableStatement statement = connection.prepareCall("{CALL sp_get_user(?)}")
         ) {
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
@@ -85,7 +85,7 @@ public class UserDAO extends Database {
             statement.setString(2, hashedPassword);
             int rowsAffected = statement.executeUpdate();
             if(rowsAffected == 1) {
-                try(CallableStatement statement2 = connection.prepareCall("{CALL sp_get_2fa_code(?)}");) {
+                try(CallableStatement statement2 = connection.prepareCall("{CALL sp_get_2fa_code(?)}")) {
                     statement2.setString(1, user.getEmail());
                     ResultSet resultSet = statement2.executeQuery();
                     if(resultSet.next()) {
@@ -158,7 +158,7 @@ public class UserDAO extends Database {
     public static String  getPasswordReset(String token) {
         String email = "";
         try(Connection connection = getConnection();
-            CallableStatement statement = connection.prepareCall("{ CALL sp_get_password_reset(?)}");
+            CallableStatement statement = connection.prepareCall("{ CALL sp_get_password_reset(?)}")
         ) {
             statement.setString(1, token);
             try(ResultSet resultSet = statement.executeQuery()) {

@@ -2,6 +2,7 @@ package edu.kirkwood.finalproject;
 
 import com.google.common.hash.Hashing;
 import edu.kirkwood.finalproject.DAO.ChannelDAO;
+import edu.kirkwood.finalproject.DAO.MessageDAO;
 import edu.kirkwood.finalproject.models.ChannelModel;
 import edu.kirkwood.finalproject.models.UserModel;
 import jakarta.servlet.ServletException;
@@ -38,7 +39,6 @@ public class HomeServlet extends HttpServlet {
         String formType = req.getParameter("formtype");
         String channelID;
         String password;
-        String channelAction;
         Map<String, String> results = new HashMap<>();
         switch (formType) {
             case "join":
@@ -63,28 +63,31 @@ public class HomeServlet extends HttpServlet {
 
             case "view":
                 try {
-                    channelAction = req.getParameter("channelaction");
+                    channelID = req.getParameter("channel");
+                    MessageDAO.ViewChannelMessages(channelID);
                 } catch (Exception e) {
-
+                    results.put("generalError", "Not able to view channel");
                 }
                 break;
 
             case "leave":
                 try {
-                    channelAction = req.getParameter("channelaction");
+                    channelID = req.getParameter("channel");
+                    ChannelDAO.ChannelLeave(user.getUserID(), channelID);
                 } catch (Exception e) {
-
+                    results.put("generalError", "Not able to leave channel");
                 }
                 break;
         }
 
 
-
-        ArrayList<ChannelModel> channelList = new ArrayList<ChannelModel>();
-        channelList = ChannelDAO.ViewUserChannels(user.getUserID());
+        if(formType != "view") {
+            ArrayList<ChannelModel> channelList = new ArrayList<ChannelModel>();
+            channelList = ChannelDAO.ViewUserChannels(user.getUserID());
+            req.setAttribute("channelList", channelList);
+        }
 
         req.setAttribute("results", results);
-        req.setAttribute("channelList", channelList);
         req.getRequestDispatcher("WEB-INF/project/homepage.jsp").forward(req, resp);
     }
 

@@ -1,13 +1,14 @@
 package edu.kirkwood.finalproject.models;
 
 import java.sql.Date;
+import java.sql.Time;
 
 public class MessageModel {
     private String MessageID;
     private String ChannelID;
     private String UserID;
     private String Content;
-    private Date TimeSent;
+    private Time TimeSent;
 
     public String getMessageID() {
         return MessageID;
@@ -41,11 +42,11 @@ public class MessageModel {
         Content = content;
     }
 
-    public Date getTimeSent() {
+    public Time getTimeSent() {
         return TimeSent;
     }
 
-    public void setTimeSent(Date timeSent) {
+    public void setTimeSent(Time timeSent) {
         TimeSent = timeSent;
     }
 }

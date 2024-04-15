@@ -45,11 +45,7 @@ public class UserDAO extends Database{
             try(ResultSet resultSet = statement.executeQuery()) {
                 if(resultSet.next()) {
                     int count = resultSet.getInt("user");
-                    if (count == 1) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return count == 1;
                 }
             }
         } catch(SQLException e) {

@@ -23,7 +23,7 @@ public class CourseDAO extends Database {
     public static List<Course> get(int limit, int offset, String categories, String skillLevel) {
         List<Course> courses = new ArrayList<>();
         try(Connection connection = getConnection();
-            CallableStatement statement = connection.prepareCall("{CALL sp_get_courses(?,?,?,?)}");
+            CallableStatement statement = connection.prepareCall("{CALL sp_get_courses(?,?,?,?)}")
         ) {
             statement.setInt(1, limit);
             statement.setInt(2, offset);
@@ -56,7 +56,7 @@ public class CourseDAO extends Database {
         List<CourseCategory> categories = new ArrayList<>();
         try (Connection connection = getConnection();
              CallableStatement statement = connection.prepareCall("{CALL sp_get_all_course_categories()}");
-             ResultSet resultSet = statement.executeQuery();
+             ResultSet resultSet = statement.executeQuery()
         ) {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
@@ -77,7 +77,7 @@ public class CourseDAO extends Database {
     
     public static boolean enroll(int studentId, int courseId) {
         try(Connection connection = getConnection();
-        CallableStatement statement = connection.prepareCall("{CALL sp_add_enrollment(?,?)}");
+        CallableStatement statement = connection.prepareCall("{CALL sp_add_enrollment(?,?)}")
         ) {
             statement.setInt(1, studentId);
             statement.setInt(2, courseId);
@@ -92,7 +92,7 @@ public class CourseDAO extends Database {
     public static TreeMap<Course, Instant> getCoursesEnrolled(int limit, int offset, int userId) {
         TreeMap<Course, Instant> enrollments = new TreeMap<>();
         try(Connection connection = getConnection();
-            CallableStatement statement = connection.prepareCall("{CALL sp_get_courses_by_student(?,?,?)}");
+            CallableStatement statement = connection.prepareCall("{CALL sp_get_courses_by_student(?,?,?)}")
         ) {
             statement.setInt(1, limit);
             statement.setInt(2, offset);
