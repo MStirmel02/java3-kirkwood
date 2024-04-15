@@ -4,6 +4,7 @@ import com.google.common.hash.Hashing;
 import edu.kirkwood.finalproject.DAO.ChannelDAO;
 import edu.kirkwood.finalproject.DAO.MessageDAO;
 import edu.kirkwood.finalproject.models.ChannelModel;
+import edu.kirkwood.finalproject.models.MessageModel;
 import edu.kirkwood.finalproject.models.UserModel;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -40,6 +41,7 @@ public class HomeServlet extends HttpServlet {
         String channelID;
         String password;
         Map<String, String> results = new HashMap<>();
+        ArrayList<MessageModel> messageList = new ArrayList<MessageModel>();
         switch (formType) {
             case "join":
                 try{
@@ -64,7 +66,7 @@ public class HomeServlet extends HttpServlet {
             case "view":
                 try {
                     channelID = req.getParameter("channel");
-                    MessageDAO.ViewChannelMessages(channelID);
+                    messageList = MessageDAO.ViewChannelMessages(channelID);
                 } catch (Exception e) {
                     results.put("generalError", "Not able to view channel");
                 }
@@ -73,7 +75,7 @@ public class HomeServlet extends HttpServlet {
             case "leave":
                 try {
                     channelID = req.getParameter("channel");
-                    ChannelDAO.ChannelLeave(user.getUserID(), channelID);
+                    boolean result = ChannelDAO.ChannelLeave(user.getUserID(), channelID);
                 } catch (Exception e) {
                     results.put("generalError", "Not able to leave channel");
                 }
@@ -85,6 +87,8 @@ public class HomeServlet extends HttpServlet {
             ArrayList<ChannelModel> channelList = new ArrayList<ChannelModel>();
             channelList = ChannelDAO.ViewUserChannels(user.getUserID());
             req.setAttribute("channelList", channelList);
+        }else{
+            req.setAttribute("messageList", messageList);
         }
 
         req.setAttribute("results", results);
