@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
     <link rel="stylesheet" type="text/css" href="${appURL}/css/project.css">
     <link rel="stylesheet" type="text/css" href="${appURL}/css/loading.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
     <script src="${appURL}/js/loading.js"></script>

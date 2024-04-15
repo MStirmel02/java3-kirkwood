@@ -11,17 +11,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChannelDAO extends Database{
+public class ChannelDAO extends Database {
 
 
     public static ArrayList<ChannelModel> ViewUserChannels(String userID) {
         ArrayList<ChannelModel> channelList = new ArrayList<ChannelModel>();
-        try(Connection connection = getConnection();
-            CallableStatement statement = connection.prepareCall("{CALL sp_user_view_channels(?)}")
+        try (Connection connection = getConnection();
+             CallableStatement statement = connection.prepareCall("{CALL sp_user_view_channels(?)}")
         ) {
             statement.setString(1, userID);
-            try(ResultSet resultSet = statement.executeQuery()) {
-                if(resultSet.next()) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
                     do {
                         String channelID = resultSet.getString("ChannelID");
                         int usersInChannel = resultSet.getInt("UsersInChannel");
@@ -34,12 +34,46 @@ public class ChannelDAO extends Database{
                     } while (!resultSet.isLast());
                 }
             }
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());
         }
         return channelList;
     }
 
+    public static boolean ChannelLogin(String userID, String channelID, String channelHash) {
+        try (Connection connection = getConnection();
+             CallableStatement statement = connection.prepareCall("{CALL sp_user_channel_sign_in(?, ?, ?)}")
+        ) {
+            statement.setString(1, userID);
+            statement.setString(2, channelID);
+            statement.setString(3, channelHash);
+            int count = statement.executeUpdate();
+            if (count == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean ChannelCreate(String userID, String channelID, String channelHash) {
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_create_channel(?, ?, ?)}")
+        ) {
+            statement.setString(1, userID);
+            statement.setString(2, channelID);
+            statement.setString(3, channelHash);
+            return statement.execute();
+        } catch(SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 
 }

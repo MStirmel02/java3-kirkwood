@@ -30,8 +30,8 @@
     text-align: center;
 }
 
-#leftColumn {
-    width: 15%;
+.leftColumn {
+    width: 10%;
 }
 
 #rightColumn {

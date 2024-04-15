@@ -3,6 +3,7 @@ package edu.kirkwood.finalproject;
 import com.google.common.hash.Hashing;
 import edu.kirkwood.finalproject.DAO.UserDAO;
 import edu.kirkwood.finalproject.models.UserModel;
+import edu.kirkwood.shared.MyValidator;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -67,26 +68,29 @@ public class SigningupServlet extends HttpServlet {
             results.put("agree", "true");
         }
 
+        if (!MyValidator.passwordPattern.matcher(password1).matches()) {
+            results.put("password1Error", "Password must have minimum 8 characters and 3 of 4 types of characters (uppercase, lowercase, digit, symbol)");
+        }
+        if (username.length() < 3) {
+            results.put("userError", "Username must be at least 3 characters long");
+        }
+
         if(!results.containsKey("userError") &&
                 !results.containsKey("password1Error") &&
                 !results.containsKey("password2Error") &&
                 !results.containsKey("agreeError")
         ) {
             boolean result = UserDAO.SignUp(user);
-            // To do: if the email is sent, redirect to a page for the user to enter their code.
+
             if(result) {
                 HttpSession session = req.getSession();
                 session.invalidate(); // Remove any existing session data
                 session = req.getSession();
-                session.setAttribute("code", "Failure");
-                session.setAttribute("username", username);
-                resp.sendRedirect("confirm");
+                session.setAttribute("activeUser", user);
+                resp.sendRedirect("home");
                 return;
             }
         }
-
-
-
 
         req.setAttribute("results", results);
         req.setAttribute("pageTitle", "Sign up for an account");
