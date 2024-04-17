@@ -80,6 +80,14 @@ public class HomeServlet extends HttpServlet {
                     results.put("generalError", "Not able to leave channel");
                 }
                 break;
+            case "delete":
+                try {
+                    channelID = req.getParameter("channel");
+
+                } catch (Exception e) {
+                    results.put("generalError", "Not able to remove channel");
+                }
+                break;
         }
 
 

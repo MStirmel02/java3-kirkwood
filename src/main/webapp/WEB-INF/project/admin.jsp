@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <h5 class="card-title">${channel.getChannelID()}</h5>
                     <p class="card-test">Users: ${channel.getUsersInChannel()}</p>
-                    <p class="card-text">Messages in the last 24 hours: </p>
+                    <p class="card-text">Messages in the last ${hours} hours: ${channel.getMessages()}</p>
                 </div>
             </div>
         </c:forEach>

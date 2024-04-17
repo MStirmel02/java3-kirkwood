@@ -6,6 +6,15 @@ public class ChannelModel {
     private String ChannelHash;
     private boolean Deleted;
     private String UserRole;
+    private int Messages;
+
+    public int getMessages() {
+        return Messages;
+    }
+
+    public void setMessages(int messages) {
+        Messages = messages;
+    }
 
     public String getUserRole() {return UserRole;}
 

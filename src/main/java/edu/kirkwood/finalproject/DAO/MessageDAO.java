@@ -35,4 +35,21 @@ public class MessageDAO extends Database {
         return messageList;
     }
 
+    public static int CountMessagesLastXHours(String channelID, int hours) {
+        try (Connection connection = getConnection();
+             CallableStatement statement = connection.prepareCall("{CALL sp_view_last_h_messages(?, ?)}")
+        ) {
+            statement.setString(1, channelID);
+            statement.setInt(2, hours);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if(resultSet.next()) {
+                    return resultSet.getInt(1);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+        }
+        return 0;
+    }
 }

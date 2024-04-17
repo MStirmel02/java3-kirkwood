@@ -1,6 +1,7 @@
 package edu.kirkwood.finalproject;
 
 import edu.kirkwood.finalproject.DAO.ChannelDAO;
+import edu.kirkwood.finalproject.DAO.MessageDAO;
 import edu.kirkwood.finalproject.DAO.UserDAO;
 import edu.kirkwood.finalproject.models.ChannelModel;
 import jakarta.servlet.ServletException;
@@ -18,7 +19,15 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ArrayList<ChannelModel> channelList = ChannelDAO.AllChannels();
+        // Default 24 hours
+        int hours = 24;
+        for (ChannelModel channel : channelList) {
+            int msgCount = MessageDAO.CountMessagesLastXHours(channel.getChannelID(), hours);
+            channel.setMessages(msgCount);
+        }
 
+
+        req.setAttribute("hours", hours);
         req.setAttribute("channelList", channelList);
         req.getRequestDispatcher("WEB-INF/project/admin.jsp").forward(req, resp);
 

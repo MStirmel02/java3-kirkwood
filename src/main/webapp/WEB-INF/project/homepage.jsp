@@ -7,7 +7,7 @@
             <span class="fs-4 text-center">Channels</span>
         </a>
         <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
+        <ul class="nav nav-pills flex-column mb-auto overflow-auto">
             <li class="nav-item justify-content-center mb-3">
                 <div class="dropdown dropend text-bg-dark">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
@@ -61,10 +61,21 @@
                                     <button class="dropdown-item text-secondary" name="channel" value="${channel.getChannelID()}">View Channel</button>
                                     <input type="hidden" name="formtype" value="view">
                                 </form>
-                                <form  action="${appURL}/home" method="post">
-                                    <button class="dropdown-item text-danger" name="channel" value="${channel.getChannelID()}">Leave Channel</button>
-                                    <input type="hidden" name="formtype" value="leave">
-                                </form>
+                                <c:set var="creator" value="Creator"></c:set>
+                                <c:choose>
+                                    <c:when test="${channel.getUserRole() eq creator}">
+                                        <form  action="${appURL}/home" method="post">
+                                            <button class="dropdown-item text-danger" name="channel" value="${channel.getChannelID()}">Delete Channel</button>
+                                            <input type="hidden" name="formtype" value="delete">
+                                        </form>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <form  action="${appURL}/home" method="post">
+                                            <button class="dropdown-item text-danger" name="channel" value="${channel.getChannelID()}">Leave Channel</button>
+                                            <input type="hidden" name="formtype" value="leave">
+                                        </form>
+                                    </c:otherwise>
+                                </c:choose>
                             </li>
                         </ul>
                     </div>
@@ -72,10 +83,25 @@
             </c:forEach>
         </ul>
     </div>
-    <div class="column" id="rightColumn">
-        <!-- Content for the right column goes here -->
-        <h2>Text box</h2>
-        <p>Will contain the text from a channel</p>
+    <div class="column text-bg-dark" id="rightColumn">
+        <!--Messages-->
+        <div>
+
+        </div>
+        <!--Text box-->
+        <div class="msg-bottom mt-auto align-bottom">
+            <div class="input-group">
+                <input
+                        type="text"
+                        class="form-control text-bg-dark"
+                        placeholder="Write message..."
+                />
+
+                <span class="input-group-text send-icon">
+                <i class="bi bi-send"></i>
+              </span>
+            </div>
+        </div>
     </div>
 </div>
 </body>

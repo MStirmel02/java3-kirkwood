@@ -35,7 +35,6 @@
 }
 
 #rightColumn {
-    background-color: darkcyan;
     width: 100%;
 }
 
@@ -48,4 +47,11 @@
 }
 .carousel-caption p {
     font-size: 20px;
+}
+
+.msg-bottom {
+    border-top: 1px solid #ccc;
+    position: relative;
+    height: 11%;
+    background-color: rgb(55 55 55);
 }
