@@ -9,6 +9,15 @@ public class UserModel {
     private String Email;
     private Time LastLoggedIn;
     private Time DateCreated;
+    private String Language;
+
+    public String getLanguage() {
+        return Language;
+    }
+
+    public void setLanguage(String language) {
+        Language = language;
+    }
 
     public Time getLastLoggedIn() {
         return LastLoggedIn;
@@ -26,7 +35,7 @@ public class UserModel {
         DateCreated = dateCreated;
     }
 
-    public String getUserID() { return UserID; }
+    public String getUserID() {return UserID;}
 
     public void setUserID(String userID) {
         UserID = userID;
@@ -41,6 +50,9 @@ public class UserModel {
     }
 
     public String getEmail() {
+        if (Email == null) {
+            return "";
+        }
         return Email;
     }
 

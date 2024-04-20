@@ -67,6 +67,7 @@ public class UserDAO extends Database{
                     user.setEmail(resultSet.getString("Email"));
                     user.setDateCreated(resultSet.getTime("DateCreated"));
                     user.setLastLoggedIn(resultSet.getTime("LastLoggedIn"));
+                    user.setLanguage(resultSet.getString("Language"));
                 }
             }
         } catch(SQLException e) {
@@ -84,6 +85,40 @@ public class UserDAO extends Database{
 
             statement.executeUpdate();
             return true;
+        } catch(SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+
+    public static boolean UpdateEmail(String email, String userId) {
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_set_email(?, ?)}")
+        ) {
+            statement.setString(1, email);
+            statement.setString(2, userId);
+
+            return statement.executeUpdate() == 1;
+
+        } catch(SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+
+    public static boolean UpdateLanguage(String language, String userId) {
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_set_language(?, ?)}")
+        ) {
+            statement.setString(1, language);
+            statement.setString(2, userId);
+
+            return statement.executeUpdate() == 1;
+
         } catch(SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());

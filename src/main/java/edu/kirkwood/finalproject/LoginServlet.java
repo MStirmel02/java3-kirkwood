@@ -69,6 +69,7 @@ public class LoginServlet extends HttpServlet {
             results.put("loginError", "The username or password entered is not correct.");
             req.setAttribute("results", results);
             req.setAttribute("pageTitle", "Sign in");
+            req.setAttribute("language", user.getLanguage());
             req.getRequestDispatcher("WEB-INF/project/login.jsp").forward(req, resp);
         }
     }

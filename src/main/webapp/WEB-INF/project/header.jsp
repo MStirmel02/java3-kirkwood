@@ -24,17 +24,17 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="${appURL}/home" class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="${appURL}/home" class="nav-link px-2 text-white"><fmt:message key="ProjHeader.Home"></fmt:message></a></li>
                 </ul>
 
                 <div class="text-end">
                     <c:choose>
                         <c:when test="${empty sessionScope.activeUser}">
-                            <a href="${appURL}/login" class="btn btn-outline-light me-2">Log In</a>
-                            <a href="${appURL}/signingup" class="btn btn-warning">Sign Up</a>
+                            <a href="${appURL}/login" class="btn btn-outline-light me-2"><fmt:message key="ProjHeader.Login"></fmt:message></a>
+                            <a href="${appURL}/signingup" class="btn btn-warning"><fmt:message key="ProjHeader.SignUp"></fmt:message></a>
                         </c:when>
                         <c:otherwise>
-                            <a href="${appURL}/signingout" class="btn btn-outline-danger me-2">Sign out</a>
+                            <a href="${appURL}/signingout" class="btn btn-outline-danger me-2"><fmt:message key="ProjHeader.SignOut"></fmt:message></a>
                             <a href="${appURL}/profile" class="btn btn-secondary">${activeUser.getUserID()}</a>
                         </c:otherwise>
                     </c:choose>

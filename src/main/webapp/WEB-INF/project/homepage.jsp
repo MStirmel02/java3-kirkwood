@@ -7,11 +7,11 @@
             <span class="fs-4 text-center">Channels</span>
         </a>
         <hr>
-        <ul class="nav nav-pills flex-column mb-auto overflow-auto">
-            <li class="nav-item justify-content-center mb-3">
+        <ul class="nav nav-pills flex-column mb-auto overflow-auto w-15 h-100">
+            <li class="nav-item justify-content-end mb-3">
                 <div class="dropdown dropend text-bg-dark">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                        Join a channel
+                        <fmt:message key="HomePage.JoinChannel"></fmt:message>
                     </button>
                     <form class="dropdown-menu p-4" action="${appURL}/home" method="post">
                         <div class="mb-3">
@@ -27,13 +27,13 @@
                     </form>
                 </div>
             </li>
-            <li class="nav-item text-center mb-3">
+            <li class="nav-item text-start mb-3">
                 or
             </li>
-            <li class="nav-item mb-3">
+            <li class="nav-item justify-content-end mb-3">
                 <div class="dropdown dropend text-bg-dark">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                        Create a channel
+                        <fmt:message key="HomePage.CreateChannel"></fmt:message>
                     </button>
                     <form class="dropdown-menu p-4" action="${appURL}/home" method="post">
                         <div class="mb-3">
@@ -50,7 +50,7 @@
                 </div>
             </li>
             <c:forEach items="${channelList}" var="channel">
-                <li class="nav-item mb-5">
+                <li class="nav-item justify-content-start mb-5">
                     <div class="dropdown dropend">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             ${channel.getChannelID()}
@@ -58,20 +58,20 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li>
                                 <form action="${appURL}/home" method="post">
-                                    <button class="dropdown-item text-secondary" name="channel" value="${channel.getChannelID()}">View Channel</button>
+                                    <button class="dropdown-item text-secondary" name="channel" value="${channel.getChannelID()}"><fmt:message key="HomePage.ViewChannel"></fmt:message></button>
                                     <input type="hidden" name="formtype" value="view">
                                 </form>
                                 <c:set var="creator" value="Creator"></c:set>
                                 <c:choose>
                                     <c:when test="${channel.getUserRole() eq creator}">
                                         <form  action="${appURL}/home" method="post">
-                                            <button class="dropdown-item text-danger" name="channel" value="${channel.getChannelID()}">Delete Channel</button>
+                                            <button class="dropdown-item text-danger" name="channel" value="${channel.getChannelID()}"><fmt:message key="HomePage.DeleteChannel"></fmt:message></button>
                                             <input type="hidden" name="formtype" value="delete">
                                         </form>
                                     </c:when>
                                     <c:otherwise>
                                         <form  action="${appURL}/home" method="post">
-                                            <button class="dropdown-item text-danger" name="channel" value="${channel.getChannelID()}">Leave Channel</button>
+                                            <button class="dropdown-item text-danger" name="channel" value="${channel.getChannelID()}"><fmt:message key="HomePage.LeaveChannel"></fmt:message></button>
                                             <input type="hidden" name="formtype" value="leave">
                                         </form>
                                     </c:otherwise>
