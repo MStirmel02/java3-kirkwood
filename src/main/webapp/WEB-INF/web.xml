@@ -46,4 +46,8 @@
         <param-name>finalProjName</param-name>
         <param-value>ChatApp</param-value>
     </context-param>
+    <context-param>
+        <param-name>defaultInputStyle</param-name>
+        <param-value>input-group-text bg-light rounded-start border-0 text-secondary px-3</param-value>
+    </context-param>
 </web-app>

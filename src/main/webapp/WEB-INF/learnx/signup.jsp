@@ -15,7 +15,7 @@
                                 <div class="mb-4">
                                     <label for="inputEmail1" class="form-label">Email address *</label>
                                     <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
+                                        <span class="${defaultInputStyle}"><i class="bi bi-envelope-fill"></i></span>
                                         <input type="text" class="form-control border-0 bg-light rounded-end ps-1 <c:if test="${not empty results.emailError}">is-invalid</c:if>" placeholder="E-mail" id="inputEmail1" name="inputEmail1"  value="${results.email}">
                                         <c:if test="${not empty results.emailError}">
                                             <div class="invalid-feedback">
@@ -28,7 +28,7 @@
                                 <div class="mb-4">
                                     <label for="inputPassword1" class="form-label">Password *</label>
                                     <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
+                                        <span class="${defaultInputStyle}"><i class="fas fa-lock"></i></span>
                                         <input type="password" class="form-control border-0 bg-light rounded-end ps-1 <c:if test="${not empty results.password1Error}">is-invalid</c:if>" placeholder="*********" id="inputPassword1" name="inputPassword1"  value="${results.password1}">
                                         <c:if test="${not empty results.password1Error}">
                                             <div class="invalid-feedback">
@@ -41,7 +41,7 @@
                                 <div class="mb-4">
                                     <label for="inputPassword2" class="form-label">Confirm Password *</label>
                                     <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
+                                        <span class="${defaultInputStyle}"><i class="fas fa-lock"></i></span>
                                         <input type="password" class="form-control border-0 bg-light rounded-end ps-1 <c:if test="${not empty results.password2Error}">is-invalid</c:if>" placeholder="*********" id="inputPassword2" name="inputPassword2"  value="${results.password2}">
                                         <c:if test="${not empty results.password2Error}">
                                             <div class="invalid-feedback">

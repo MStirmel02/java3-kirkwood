@@ -31,7 +31,7 @@
                                 <div class="mb-4">
                                     <label for="inputEmail1" class="form-label">Email address *</label>
                                     <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="bi bi-envelope-fill"></i></span>
+                                        <span class="${defaultInputStyle}"><i class="bi bi-envelope-fill"></i></span>
                                         <input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="inputEmail1" name="inputEmail1"  value="${results.email}">
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                 <div class="mb-4">
                                     <label for="inputPassword1" class="form-label">Password *</label>
                                     <div class="input-group input-group-lg">
-                                        <span class="input-group-text bg-light rounded-start border-0 text-secondary px-3"><i class="fas fa-lock"></i></span>
+                                        <span class="${defaultInputStyle}"><i class="fas fa-lock"></i></span>
                                         <input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="*********" id="inputPassword1" name="inputPassword1"  value="${results.password1}">
                                     </div>
                                 </div>
