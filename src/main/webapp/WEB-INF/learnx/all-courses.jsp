@@ -67,21 +67,17 @@ Page content START -->
                                                 <div class="d-flex align-items-center">
                                                     <p class="mb-0 ms-2">Taught by: ${course.teacherFirstName}&nbsp;${course.teacherLastName}</p>
                                                 </div>
+
+                                                <div class="d-flex align-items-center">
+                                                    <c:set var="cost" value="1234.567"></c:set>
+                                                    <p class="mb-0 ms-2">Cost: <fmt:formatNumber value="${cost}" type="currency" currencyCode="USD" /></p>
+                                                </div>
+
                                                 <c:if test="${activeUser.privileges eq 'student'}">
-                                                    <c:choose>
-                                                        <c:when test="${enrolledCourses.containsKey(course)}">
-                                                            <!-- Enrolled -->
-                                                            <div class="mt-3 mt-sm-0">
-                                                                <a href="#" class="btn btn-dark disabled">Enrolled</a>
-                                                            </div>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <!-- Enroll -->
-                                                            <div class="mt-3 mt-sm-0">
-                                                                <a href="${appURL}/enroll?course=${course.id}" class="btn btn-dark">Enroll</a>
-                                                            </div>
-                                                        </c:otherwise>
-                                                    </c:choose>
+                                                <!-- Enroll -->
+                                                <div class="mt-3 mt-sm-0">
+                                                    <a href="${appURL}/enroll?course=${course.id}" class="btn btn-dark">Enroll</a>
+                                                </div>
                                                 </c:if>
                                             </div>
                                         </div>

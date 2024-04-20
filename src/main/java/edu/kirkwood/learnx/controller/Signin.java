@@ -58,6 +58,7 @@ public class Signin extends HttpServlet {
                     userFromDatabase.setPassword(null);
                     HttpSession session = req.getSession();
                     session.setAttribute("activeUser", userFromDatabase);
+                    session.setAttribute("language", userFromDatabase.getLanguage());
                     if(remember != null && remember[0].equals("yes")) {
                         session.setMaxInactiveInterval(7 * 24 * 60 * 60); // 7 days
                     }

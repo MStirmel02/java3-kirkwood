@@ -38,9 +38,11 @@ public class Enroll extends HttpServlet {
         if(CourseDAO.enroll(userFromSession.getId(), courseIdInt)) {
             session.setAttribute("flashMessageSuccess", "You are enrolled!");
             resp.sendRedirect("student");
+            return;
         } else {
             session.setAttribute("flashMessageDanger", "Enrollment failed. Try again later.");
             resp.sendRedirect("courses");
+            return;
         }
     }
 }

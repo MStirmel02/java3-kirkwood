@@ -3,6 +3,8 @@ package edu.kirkwood.learnx.model;
 import edu.kirkwood.shared.MyValidator;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.regex.Matcher;
 
 public class User {
@@ -18,9 +20,22 @@ public class User {
     private Instant created_at;
     private Instant last_logged_in;
     private Instant updated_at;
+    private LocalDate birthday;
     
     public User() {
         
+    }
+
+    public User(int id, String firstName, String lastName, String email, String phone, char[] password, String language, String status, String privileges) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.language = language;
+        this.status = status;
+        this.privileges = privileges;
     }
 
     public User(int id, String firstName, String lastName, String email, String phone,
@@ -53,6 +68,7 @@ public class User {
     }
 
     public void setFirstName(String firstName) {
+        // todo: validate string
         this.firstName = firstName;
     }
 
@@ -61,6 +77,7 @@ public class User {
     }
 
     public void setLastName(String lastName) {
+        // todo: validate string
         this.lastName = lastName;
     }
 
@@ -121,6 +138,7 @@ public class User {
     }
 
     public void setStatus(String status) {
+        // todo: validate string
         this.status = status;
     }
 
@@ -129,11 +147,16 @@ public class User {
     }
 
     public void setPrivileges(String privileges) {
+        // todo: validate string
         this.privileges = privileges;
     }
 
     public Instant getCreated_at() {
         return created_at;
+    }
+    
+    public Date getCreated_at_toDate() {
+        return Date.from(created_at);
     }
 
     public void setCreated_at(Instant created_at) {
@@ -144,6 +167,10 @@ public class User {
         return last_logged_in;
     }
 
+    public Date getLast_logged_in_toDate() {
+        return Date.from(last_logged_in);
+    }
+
     public void setLast_logged_in(Instant last_logged_in) {
         this.last_logged_in = last_logged_in;
     }
@@ -152,8 +179,24 @@ public class User {
         return updated_at;
     }
 
+    public Date getUpdated_at_toDate() {
+        return Date.from(updated_at);
+    }
+
     public void setUpdated_at(Instant updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+    
+    public Date getBirthday_toDate() {
+        return java.sql.Date.valueOf(birthday);
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     @Override

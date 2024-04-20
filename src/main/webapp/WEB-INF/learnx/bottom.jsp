@@ -5,9 +5,9 @@
 <script src="${appURL}/js/loading.js"></script>
 <script src="${appURL}/js/learnx.js"></script>
 <c:if test="${pageTitle eq 'Student Dashboard'}">
-    <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.js"></script>
-    <script>
-        new PureCounter();
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.js"></script>
+<script>
+    new PureCounter();
+</script>
 </c:if>
 <%@include file="/WEB-INF/shared/bottom.jsp"%>

@@ -2,9 +2,7 @@ package edu.kirkwood.learnx.model;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Comparator;
-
-public class Course implements Comparable<Course> {
+public class Course implements Comparable<Course>{
     private int id;
     private String name;
     private String description;

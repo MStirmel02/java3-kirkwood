@@ -45,7 +45,8 @@
                                     <select name="languageInput" id="languageInput" class="form-select <c:if test="${not empty results.languageError}">is-invalid</c:if>">
                                         <option value="en-US" ${activeUser.language eq 'en-US' ? 'selected' : ''}>English</option>
                                         <option value="fr-FR" ${activeUser.language eq 'fr-FR' ? 'selected' : ''}>French</option>
-                                        <option value="es-MX" ${activeUser.language eq 'es-MX' ? 'selected' : ''}>Spanish</option>
+                                        <option value="ar" ${activeUser.language eq 'ar' ? 'selected' : ''}>Arabic</option>
+                                        <option value="ru-RU" ${activeUser.language eq 'ru-RU' ? 'selected' : ''}>Russian</option>
                                     </select>
                                     <c:if test="${not empty results.languageError}">
                                         <div class="invalid-feedback">

@@ -10,16 +10,18 @@ import jakarta.servlet.http.HttpServletRequest;
 
 public class CommunicationService
 {
-
+    public static void main(String[] args) {
+        sendEmail("marc", "Testing", "Testing again");
+    }
     private static EmailClient createEmailClient() {
         Dotenv dotenv = Dotenv.load();
-        String connectionString = dotenv.get("EMAIL_CONN");
+        String connectionString = dotenv.get("EMAIL_CONNECTION");
         EmailClient emailClient = new EmailClientBuilder()
                 .connectionString(connectionString)
                 .buildClient();
         return emailClient;
     }
-
+    
     public static String sendNewUserEmail(String email, String code) {
         String subject = "LearnX New User";
         String message = "<h2>Welcome to LearnX</h2>";
@@ -69,3 +71,4 @@ public class CommunicationService
         }
     }
 }
+
