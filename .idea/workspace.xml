@@ -10,17 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Assignment 9">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/data/JobListingDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/ProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/ProfileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/models/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/models/UserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/translation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translation.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/translation_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translation_ru.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/project.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/project.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/model/JobListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/model/JobListing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +23,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Class" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -115,7 +107,7 @@
       <recent name="edu.kirkwood.finalproject" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.13">
+  <component name="RunManager" selected="Application.JobListingDAO">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -146,12 +138,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AnimalCount" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.kirkwood.demos.AnimalCount" />
+    <configuration name="CommunicationService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.kirkwood.shared.CommunicationService" />
       <module name="java3-kirkwood" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.kirkwood.demos.*" />
+          <option name="PATTERN" value="edu.kirkwood.shared.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -159,12 +151,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommunicationService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.kirkwood.shared.CommunicationService" />
+    <configuration name="JobListingDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.kirkwood.learnx.data.JobListingDAO" />
       <module name="java3-kirkwood" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.kirkwood.shared.*" />
+          <option name="PATTERN" value="edu.kirkwood.learnx.data.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -292,20 +284,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.JobListingDAO" />
       <item itemvalue="Application.edu.kirkwood.finalproject.DAO.UserDAO" />
       <item itemvalue="Application.UserDAO" />
       <item itemvalue="Application.CommunicationService" />
-      <item itemvalue="Application.AnimalCount" />
       <item itemvalue="Node.js.linegraph.js" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JobListingDAO" />
         <item itemvalue="Node.js.linegraph.js" />
         <item itemvalue="Application.edu.kirkwood.finalproject.DAO.UserDAO" />
         <item itemvalue="Application.UserDAO" />
         <item itemvalue="Application.CommunicationService" />
-        <item itemvalue="Application.AnimalCount" />
       </list>
     </recent_temporary>
   </component>
@@ -348,7 +340,7 @@
       <workItem from="1712598155709" duration="27415000" />
       <workItem from="1713145325949" duration="13184000" />
       <workItem from="1713207061539" duration="15172000" />
-      <workItem from="1713575784047" duration="12154000" />
+      <workItem from="1713575784047" duration="14431000" />
     </task>
     <task id="LOCAL-00001" summary="wed jan 27">
       <created>1705528062338</created>
@@ -539,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713579277703</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Assignment 9">
+      <option name="closed" value="true" />
+      <created>1713632392030</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1713632392030</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

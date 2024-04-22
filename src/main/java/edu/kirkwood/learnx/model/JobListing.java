@@ -1,5 +1,7 @@
 package edu.kirkwood.learnx.model;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.time.Instant;
 
 public class JobListing {
@@ -19,12 +21,12 @@ description, String
     private String department_name;
     private boolean featured;
     private String position;
-    private Instant posted_at;
+    private Timestamp posted_at;
     private String contract;
     private String location;
     private String description;
 
-    public JobListing(int job_id, int department_id, String department_name, boolean featured, String position, Instant posted_at, String contract, String location, String description) {
+    public JobListing(int job_id, int department_id, String department_name, boolean featured, String position, Timestamp posted_at, String contract, String location, String description) {
         this.job_id = job_id;
         this.department_id = department_id;
         this.department_name = department_name;
@@ -91,11 +93,11 @@ description, String
         this.position = position;
     }
 
-    public Instant getPosted_at() {
+    public Timestamp getPosted_at() {
         return posted_at;
     }
 
-    public void setPosted_at(Instant posted_at) {
+    public void setPosted_at(Timestamp posted_at) {
         this.posted_at = posted_at;
     }
 
