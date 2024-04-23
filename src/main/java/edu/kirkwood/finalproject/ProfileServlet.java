@@ -19,16 +19,16 @@ public class ProfileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        UserModel user = (UserModel) session.getAttribute("activeUser");
+        UserModel user = (UserModel) session.getAttribute("currentUser");
 
-        req.setAttribute("activeUser", user);
+        req.setAttribute("currentUser", user);
         req.getRequestDispatcher("WEB-INF/project/profile.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        UserModel user = (UserModel) req.getSession().getAttribute("activeUser");
+        UserModel user = (UserModel) req.getSession().getAttribute("currentUser");
 
         String email = req.getParameter("inputEmail");
         String language = req.getParameter("inputLanguage");
@@ -48,7 +48,7 @@ public class ProfileServlet extends HttpServlet {
             }
         }
 
-        req.getSession().setAttribute("activeUser", user);
+        req.getSession().setAttribute("currentUser", user);
         req.setAttribute("language", user.getLanguage());
 
         req.getRequestDispatcher("WEB-INF/project/profile.jsp").forward(req, resp);

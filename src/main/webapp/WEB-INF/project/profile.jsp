@@ -14,7 +14,7 @@
                                 <!-- First Name -->
                                 <div class="col-md-6">
                                     <label for="inputEmail" class="form-label">Email Address</label>
-                                    <input type="text" class="form-control <c:if test="${not empty EmailError}">is-invalid</c:if>" id="inputEmail" name="inputEmail" value="${fn:escapeXml(activeUser.getEmail())}">
+                                    <input type="text" class="form-control <c:if test="${not empty EmailError}">is-invalid</c:if>" id="inputEmail" name="inputEmail" value="${fn:escapeXml(currentUser.getEmail())}">
                                     <c:if test="${not empty EmailError}">
                                         <div class="invalid-feedback">
                                                 ${EmailError}
@@ -25,8 +25,8 @@
                                 <div class="col-md-6">
                                     <label for="inputLangauge" class="form-label">Language</label>
                                     <select name="inputLanguage" id="inputLangauge" class="form-select <c:if test="${not empty LanguageError}">is-invalid</c:if>">
-                                        <option value="en-US" ${activeUser.language eq 'en-US' ? 'selected' : ''}>English</option>
-                                        <option value="ru-RU" ${activeUser.language eq 'ru-RU' ? 'selected' : ''}>Russian</option>
+                                        <option value="en-US" ${currentUser.language eq 'en-US' ? 'selected' : ''}>English</option>
+                                        <option value="ru-RU" ${currentUser.language eq 'ru-RU' ? 'selected' : ''}>Russian</option>
                                     </select>
                                     <c:if test="${not empty LanguageError}">
                                         <div class="invalid-feedback">

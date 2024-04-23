@@ -29,13 +29,13 @@
 
                 <div class="text-end">
                     <c:choose>
-                        <c:when test="${empty sessionScope.activeUser}">
+                        <c:when test="${empty sessionScope.currentUser}">
                             <a href="${appURL}/login" class="btn btn-outline-light me-2"><fmt:message key="ProjHeader.Login"></fmt:message></a>
                             <a href="${appURL}/signingup" class="btn btn-warning"><fmt:message key="ProjHeader.SignUp"></fmt:message></a>
                         </c:when>
                         <c:otherwise>
                             <a href="${appURL}/signingout" class="btn btn-outline-danger me-2"><fmt:message key="ProjHeader.SignOut"></fmt:message></a>
-                            <a href="${appURL}/profile" class="btn btn-secondary">${activeUser.getUserID()}</a>
+                            <a href="${appURL}/profile" class="btn btn-secondary">${currentUser.getUserID()}</a>
                         </c:otherwise>
                     </c:choose>
                 </div>

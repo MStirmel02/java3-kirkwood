@@ -55,3 +55,7 @@
     height: 11%;
     background-color: rgb(55 55 55);
 }
+
+.test{
+    overflow-x: hidden;
+}

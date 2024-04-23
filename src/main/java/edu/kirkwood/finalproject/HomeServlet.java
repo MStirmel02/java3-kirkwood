@@ -25,18 +25,20 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        UserModel user = (UserModel) session.getAttribute("activeUser");
+        UserModel user = (UserModel) session.getAttribute("currentUser");
+
 
         ArrayList<ChannelModel> channelList = new ArrayList<ChannelModel>();
         channelList = ChannelDAO.ViewUserChannels(user.getUserID());
 
+        req.setAttribute("language", user.getLanguage());
         req.setAttribute("channelList", channelList);
         req.getRequestDispatcher("WEB-INF/project/homepage.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        UserModel user = (UserModel) req.getSession().getAttribute("activeUser");
+        UserModel user = (UserModel) req.getSession().getAttribute("currentUser");
         String formType = req.getParameter("formtype");
         String channelID;
         String password;
@@ -47,9 +49,11 @@ public class HomeServlet extends HttpServlet {
                 try{
                     channelID = req.getParameter("joinchannelid");
                     password = req.getParameter("joinchannelpassword");
-                    ChannelDAO.ChannelLogin(user.getUserID(), channelID, HashIt(password));
+                    if(!ChannelDAO.ChannelLogin(user.getUserID(), channelID, HashIt(password))) {
+                        results.put("ChannelError", "One or more inputs are incorrect.");
+                    }
                 } catch (Exception e) {
-                    results.put("joinchannelerror", "One or more inputs are incorrect.");
+                    results.put("ChannelError", "One or more inputs are incorrect.");
                 }
                 break;
 
@@ -57,9 +61,11 @@ public class HomeServlet extends HttpServlet {
                 try {
                     channelID = req.getParameter("createchannelid");
                     password = req.getParameter("createchannelpassword");
-                    ChannelDAO.ChannelCreate(user.getUserID(), channelID, HashIt(password));
+                    if(!ChannelDAO.ChannelCreate(user.getUserID(), channelID, HashIt(password))) {
+                        results.put("ChannelError", "One or more inputs are incorrect.");
+                    };
                 } catch (Exception e) {
-                    results.put("createchannelerror", "One or more inputs are incorrect.");
+                    results.put("ChannelError", "A channel with that name already exists.");
                 }
                 break;
 
@@ -68,16 +74,18 @@ public class HomeServlet extends HttpServlet {
                     channelID = req.getParameter("channel");
                     messageList = MessageDAO.ViewChannelMessages(channelID);
                 } catch (Exception e) {
-                    results.put("generalError", "Not able to view channel");
+                    results.put("ChannelError", "Not able to view channel");
                 }
                 break;
 
             case "leave":
                 try {
                     channelID = req.getParameter("channel");
-                    boolean result = ChannelDAO.ChannelLeave(user.getUserID(), channelID);
+                    if(!ChannelDAO.ChannelLeave(user.getUserID(), channelID)) {
+                        results.put("ChannelError", "Not able to leave channel");
+                    }
                 } catch (Exception e) {
-                    results.put("generalError", "Not able to leave channel");
+                    results.put("ChannelError", "Not able to leave channel");
                 }
                 break;
             case "delete":
@@ -85,7 +93,7 @@ public class HomeServlet extends HttpServlet {
                     channelID = req.getParameter("channel");
 
                 } catch (Exception e) {
-                    results.put("generalError", "Not able to remove channel");
+                    results.put("ChannelError", "Not able to remove channel");
                 }
                 break;
         }

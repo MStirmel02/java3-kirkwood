@@ -4,8 +4,8 @@
             <div class="card">
                 <div class="card-body">
                     <ul class="list-inline">
-                        <li class="list-inline-item">Account Created: ${activeUser.getDateCreated()}</li>
-                        <li class="list-inline-item">Last Logged In: ${activeUser.getLastLoggedIn()}</li>
+                        <li class="list-inline-item">Account Created: ${currentUser.getDateCreated()}</li>
+                        <li class="list-inline-item">Last Logged In: ${currentUser.getLastLoggedIn()}</li>
                     </ul>
                 </div>
             </div><%--   Close card--%>

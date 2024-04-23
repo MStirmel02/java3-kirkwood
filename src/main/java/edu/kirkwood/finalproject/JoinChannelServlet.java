@@ -41,7 +41,7 @@ public class JoinChannelServlet extends HttpServlet {
                 .hashString(password1, StandardCharsets.UTF_8)
                 .toString();
 
-        user = (UserModel) req.getSession().getAttribute("activeUser");
+        user = (UserModel) req.getSession().getAttribute("currentUser");
 
         if (ChannelDAO.ChannelLogin(user.getUserID(), id, passwordHashed)) {
             resp.sendRedirect("home");

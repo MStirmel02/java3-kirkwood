@@ -86,7 +86,7 @@ public class SigningupServlet extends HttpServlet {
                 HttpSession session = req.getSession();
                 session.invalidate(); // Remove any existing session data
                 session = req.getSession();
-                session.setAttribute("activeUser", user);
+                session.setAttribute("currentUser", user);
                 resp.sendRedirect("home");
                 return;
             }

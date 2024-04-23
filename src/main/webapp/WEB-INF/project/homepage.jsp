@@ -2,18 +2,24 @@
 
 <body>
 <div class="sectioncontainer">
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark leftColumn">
+    <!-- d-flex flex-column flex-shrink-0 p-3 text-bg-dark align-items-start leftColumn -->
+    <div class="overflow-auto px-2 w-25 test text-bg-dark">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <span class="fs-4 text-center">Channels</span>
         </a>
         <hr>
-        <ul class="nav nav-pills flex-column mb-auto overflow-auto w-15 h-100">
+        <c:if test="${not empty results.ChannelError}">
+            <div class="text-danger">
+                    ${results.ChannelError}
+            </div>
+        </c:if>
+        <ul class="nav nav-pills flex-column mb-auto w-15 h-100 align-items-start">
             <li class="nav-item justify-content-end mb-3">
                 <div class="dropdown dropend text-bg-dark">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                         <fmt:message key="HomePage.JoinChannel"></fmt:message>
                     </button>
-                    <form class="dropdown-menu p-4" action="${appURL}/home" method="post">
+                    <form class="dropdown-menu p-4 text-bg-dark" action="${appURL}/home" method="post">
                         <div class="mb-3">
                             <label for="joinchannelid" class="form-label">Channel ID</label>
                             <input class="form-control" id="joinchannelid" name="joinchannelid" placeholder="Channel ID">
@@ -35,7 +41,7 @@
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                         <fmt:message key="HomePage.CreateChannel"></fmt:message>
                     </button>
-                    <form class="dropdown-menu p-4" action="${appURL}/home" method="post">
+                    <form class="dropdown-menu text-bg-dark p-4" action="${appURL}/home" method="post">
                         <div class="mb-3">
                             <label for="createchannelid" class="form-label">Channel ID</label>
                             <input class="form-control" id="createchannelid" name="createchannelid" placeholder="Channel ID">
@@ -49,6 +55,7 @@
                     </form>
                 </div>
             </li>
+            <hr>
             <c:forEach items="${channelList}" var="channel">
                 <li class="nav-item justify-content-start mb-5">
                     <div class="dropdown dropend">
