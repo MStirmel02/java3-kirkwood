@@ -22,7 +22,7 @@ public class JobListingServlet extends HttpServlet {
         HttpSession session = req.getSession();
         User userFromSession = (User)session.getAttribute("activeUser");
 
-        ArrayList<JobListing> listings = JobListingDAO.get(5, 0, "", "");
+        ArrayList<JobListing> listings = JobListingDAO.get(10, 0, "", "");
 
         req.setAttribute("listings", listings);
         req.setAttribute("pageTitle", "Careers");
