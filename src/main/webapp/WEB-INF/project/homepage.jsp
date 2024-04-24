@@ -92,7 +92,7 @@
     </div>
     <div class="column text-bg-dark" id="rightColumn">
         <!--Messages-->
-        <div>
+        <div class="border-white border-1" style="height: 75vh">
 
         </div>
         <!--Text box-->
