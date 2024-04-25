@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Quiz 25 (added 10 limit default to show featured tag functionality)">
+    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Functionality to admin page and add permissioning">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/AdminUserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/learnx/left-side-bar-admin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/AdminServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/ChannelDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/ChannelDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/learnx/edit-profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/learnx/edit-profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/learnx/left-side-bar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/learnx/left-side-bar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -343,7 +343,7 @@
       <workItem from="1713145325949" duration="13184000" />
       <workItem from="1713207061539" duration="15172000" />
       <workItem from="1713575784047" duration="18386000" />
-      <workItem from="1713894660466" duration="21417000" />
+      <workItem from="1713894660466" duration="24077000" />
     </task>
     <task id="LOCAL-00001" summary="wed jan 27">
       <created>1705528062338</created>
@@ -574,7 +574,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713981067812</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Functionality to admin page and add permissioning">
+      <option name="closed" value="true" />
+      <created>1714007399766</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1714007399766</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +606,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Completed home page, navigation, footer, and privacy policy" />
     <MESSAGE value="Remade to fix problems" />
     <MESSAGE value="Assignment 3" />
     <MESSAGE value="Assignment 3 again" />
@@ -623,7 +630,8 @@
     <MESSAGE value="Some work" />
     <MESSAGE value="Quiz 25" />
     <MESSAGE value="Quiz 25 (added 10 limit default to show featured tag functionality)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Quiz 25 (added 10 limit default to show featured tag functionality)" />
+    <MESSAGE value="Functionality to admin page and add permissioning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Functionality to admin page and add permissioning" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

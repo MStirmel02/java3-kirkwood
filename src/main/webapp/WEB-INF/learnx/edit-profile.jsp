@@ -3,7 +3,15 @@
     <%@include file="/WEB-INF/learnx/left-side-bar-header.jsp"%>
     <div class="container">
         <div class="row">
-            <%@include file="/WEB-INF/learnx/left-side-bar.jsp"%>
+            <c:choose>
+                <c:when test="${activeUser.privileges eq 'admin'}">
+                    <%@include file="/WEB-INF/learnx/left-side-bar-admin.jsp"%>
+                </c:when>
+                <c:otherwise>
+                    <%@include file="/WEB-INF/learnx/left-side-bar.jsp"%>
+                </c:otherwise>
+            </c:choose>
+                
 
             <div class="col-xl-9">
                 <div class="card border rounded-3">
