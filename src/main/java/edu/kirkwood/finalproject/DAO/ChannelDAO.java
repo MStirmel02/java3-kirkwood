@@ -76,7 +76,20 @@ public class ChannelDAO extends Database {
         ) {
             statement.setString(1, userID);
             statement.setString(2, channelID);
-            return statement.execute();
+            return statement.executeUpdate() > 0;
+        } catch(SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean ChannelDelete(String channelID) {
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_delete_channel(?)}")
+        ) {
+            statement.setString(1, channelID);
+            return statement.executeUpdate() > 0;
         } catch(SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());
@@ -93,9 +106,11 @@ public class ChannelDAO extends Database {
                 while(resultSet.next()) {
                     String channelID = resultSet.getString("ChannelID");
                     int usersInChannel = resultSet.getInt("UsersInChannel");
+                    boolean deleted = resultSet.getBoolean("Deleted");
                     ChannelModel channel = new ChannelModel();
                     channel.setChannelID(channelID);
                     channel.setUsersInChannel(usersInChannel);
+                    channel.setDeleted(deleted);
                     channelList.add(channel);
                 }
             }

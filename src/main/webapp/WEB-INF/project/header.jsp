@@ -24,7 +24,14 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="${appURL}/home" class="nav-link px-2 text-white"><fmt:message key="ProjHeader.Home"></fmt:message></a></li>
+                    <c:if test="${not empty sessionScope.currentUser}">
+                        <li><a href="${appURL}/home" class="nav-link px-2 text-white"><fmt:message key="ProjHeader.Home"></fmt:message></a></li>
+
+                        <c:set value="MStirmel" var="admin"></c:set>
+                        <c:if test="${sessionScope.currentUser.getUserID() eq admin}">
+                            <li><a href="${appURL}/admin" class="nav-link px-2 text-white">Admin</a></li>
+                        </c:if>
+                    </c:if>
                 </ul>
 
                 <div class="text-end">
