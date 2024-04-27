@@ -1,4 +1,7 @@
 package edu.kirkwood.shared;
+import edu.kirkwood.learnx.model.User;
+import jakarta.servlet.http.HttpServletRequest;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -21,4 +24,13 @@ public class Helpers {
         }
         return Period.between(birthDate, LocalDate.now()).getYears();
     }
+
+    public static User getUserFromSession(HttpServletRequest req ) {
+        try{
+            return (User) req.getAttribute("activeUser");
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
 }

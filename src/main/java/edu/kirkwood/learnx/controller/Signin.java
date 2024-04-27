@@ -48,7 +48,7 @@ public class Signin extends HttpServlet {
                 // Password entered is not correct
                 results.put("loginError", "The email or password you entered is not correct");
             } else {
-                if(userFromDatabase.getStatus() == null || !userFromDatabase.getStatus().equals("active")) {
+                if(userFromDatabase.getStatus() == null || !User.isActive(userFromDatabase)) {
                     results.put("loginError", "Your account is not active. Please contact support for help.");
                 }  else {
                     // Email and password are correct, and it's an active user

@@ -55,6 +55,18 @@ public class User {
         this.updated_at = updated_at;
     }
 
+    public static boolean isStudent(User user) {
+        return user.privileges == "student";
+    }
+    public static boolean isTeacher(User user) {
+        return user.privileges == "teach";
+    }
+    public static boolean isAdmin(User user) {
+        return user.privileges == "admin";
+    }
+    public static boolean isActive(User user) {
+        return user.status == "active";
+    }
     public int getId() {
         return id;
     }

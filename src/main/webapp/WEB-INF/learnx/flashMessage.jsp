@@ -10,3 +10,9 @@
     </div>
     <c:remove var="flashMessageWarning"></c:remove>
 </c:if>
+<c:if test="${not empty flashMessageDanger}">
+    <div class="alert alert-danger">
+            ${flashMessageDanger}
+    </div>
+    <c:remove var="flashMessageDanger"></c:remove>
+</c:if>

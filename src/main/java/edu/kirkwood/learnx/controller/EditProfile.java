@@ -2,6 +2,7 @@ package edu.kirkwood.learnx.controller;
 
 import edu.kirkwood.learnx.data.UserDAO;
 import edu.kirkwood.learnx.model.User;
+import edu.kirkwood.shared.Helpers;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ public class EditProfile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        User userFromSession = (User)session.getAttribute("activeUser");
+        User userFromSession = Helpers.getUserFromSession(req);
         if(userFromSession == null) {
             // Redirect non-logged in user to login page
             session.setAttribute("flashMessageWarning", "You must be logged in to view this content.");

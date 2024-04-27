@@ -4,6 +4,7 @@ import edu.kirkwood.learnx.data.JobListingDAO;
 import edu.kirkwood.learnx.data.UserDAO;
 import edu.kirkwood.learnx.model.JobListing;
 import edu.kirkwood.learnx.model.User;
+import edu.kirkwood.shared.Helpers;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,7 +21,7 @@ public class JobListingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        User userFromSession = (User)session.getAttribute("activeUser");
+        User userFromSession = Helpers.getUserFromSession(req);
 
         ArrayList<JobListing> listings = JobListingDAO.get(10, 0, "", "");
 
