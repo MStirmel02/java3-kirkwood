@@ -90,23 +90,52 @@
             </c:forEach>
         </ul>
     </div>
-    <div class="column text-bg-dark" id="rightColumn">
+    <div class="column text-bg-dark overflow-auto" id="rightColumn">
         <!--Messages-->
-        <div class="border-white border-1" style="height: 75vh">
-
+        <div class="border-white border-1" style="height: 70vh">
+            <div class="container border border-bottom-0">
+                <c:if test="${not empty messageList}">
+                    <c:forEach items="${messageList}" var="message">
+                        <div class="row justify-content-md-start mt-1 mb-1 border border-top-0">
+                            <div class="col col-1">
+                                ${message.getTimeSent()}
+                            </div>
+                            <div class="col col-1">
+                                ${message.getUserID()}
+                            </div>
+                            <div class="col-md-auto">
+                                ${message.getContent()}
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:if>
+            </div>
         </div>
         <!--Text box-->
         <div class="msg-bottom mt-auto align-bottom">
             <div class="input-group">
-                <input
-                        type="text"
-                        class="form-control text-bg-dark"
-                        placeholder="Write message..."
-                />
-
-                <span class="input-group-text send-icon">
-                <i class="bi bi-send"></i>
+                <form action="${appURL}/home" method="post">
+                    <input
+                            type="text"
+                            class="form-control text-bg-dark"
+                            name="messagecontent"
+                            placeholder="Write message..."
+                    />
+                    <input type="hidden" name="formtype" value="send">
+                    <span class="input-group-text send-icon">
+                        <button class="btn btn-primary" type="submit">
+                            Send
+                        </button>
               </span>
+                </form>
+                <form action="${appURL}/home" method="post">
+                    <input type="hidden" name="formtype" value="refresh">
+                    <span class="input-group-text send-icon">
+                        <button class="btn btn-primary" type="submit">
+                            Refresh
+                        </button>
+              </span>
+                </form>
             </div>
         </div>
     </div>

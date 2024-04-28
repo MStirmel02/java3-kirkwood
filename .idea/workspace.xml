@@ -9,17 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Assignment 11">
+    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Assignment 9 redo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/AllUsersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/AllUsersServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/DeleteAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/DeleteAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/EditProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/EditProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/Enroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/Enroll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/JobListingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/JobListingServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/StudentDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/StudentDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/Helpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/Helpers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/learnx/flashMessage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/learnx/flashMessage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/MessageDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,7 +342,7 @@
       <workItem from="1713145325949" duration="13184000" />
       <workItem from="1713207061539" duration="15172000" />
       <workItem from="1713575784047" duration="18386000" />
-      <workItem from="1713894660466" duration="27053000" />
+      <workItem from="1713894660466" duration="33090000" />
     </task>
     <task id="LOCAL-00001" summary="wed jan 27">
       <created>1705528062338</created>
@@ -595,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714079250953</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Assignment 9 redo">
+      <option name="closed" value="true" />
+      <created>1714235913065</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1714235913065</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,7 +621,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Assignment 3" />
     <MESSAGE value="Assignment 3 again" />
     <MESSAGE value="Midterm question" />
     <MESSAGE value="Progress report 3" />
@@ -644,7 +645,8 @@
     <MESSAGE value="Quiz 25 (added 10 limit default to show featured tag functionality)" />
     <MESSAGE value="Functionality to admin page and add permissioning" />
     <MESSAGE value="Assignment 11" />
-    <option name="LAST_COMMIT_MESSAGE" value="Assignment 11" />
+    <MESSAGE value="Assignment 9 redo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assignment 9 redo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -665,11 +667,6 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/learnx/controller/JobListingServlet.java</url>
           <line>23</line>
           <option name="timeStamp" value="27" />
@@ -678,6 +675,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/AdminServlet.java</url>
           <line>39</line>
           <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

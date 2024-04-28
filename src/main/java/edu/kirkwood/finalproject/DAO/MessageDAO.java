@@ -13,7 +13,7 @@ public class MessageDAO extends Database {
     public static ArrayList<MessageModel> ViewChannelMessages(String channelID) {
         ArrayList<MessageModel> messageList = new ArrayList<MessageModel>();
         try (Connection connection = getConnection();
-             CallableStatement statement = connection.prepareCall("{CALL sp_user_view_channel_messages(?)}")
+             CallableStatement statement = connection.prepareCall("{CALL sp_view_channel_messages(?)}")
         ) {
             statement.setString(1, channelID);
             try (ResultSet resultSet = statement.executeQuery()) {
@@ -51,5 +51,20 @@ public class MessageDAO extends Database {
             System.out.println(e.getMessage());
         }
         return 0;
+    }
+
+    public static boolean SendMessage(String userId, String channelId, String content) {
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_create_message(?,?,?)}")
+        ) {
+            statement.setString(1, userId);
+            statement.setString(2, channelId);
+            statement.setString(3, content);
+            return statement.executeUpdate() > 0;
+        } catch(SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 }

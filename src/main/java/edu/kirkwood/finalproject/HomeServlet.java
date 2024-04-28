@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.nio.channels.Channel;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,7 +73,9 @@ public class HomeServlet extends HttpServlet {
             case "view":
                 try {
                     channelID = req.getParameter("channel");
+                    req.getSession().setAttribute("selectedchannel", channelID);
                     messageList = MessageDAO.ViewChannelMessages(channelID);
+                    req.setAttribute("messageList", messageList);
                 } catch (Exception e) {
                     results.put("ChannelError", "Not able to view channel");
                 }
@@ -96,16 +99,35 @@ public class HomeServlet extends HttpServlet {
                     results.put("ChannelError", "Not able to remove channel");
                 }
                 break;
+            case "send":
+                try{
+                    channelID = (String) req.getSession().getAttribute("selectedchannel");
+                    String content = req.getParameter("messagecontent");
+
+                    MessageDAO.SendMessage(user.getUserID(), channelID, content);
+                    messageList = MessageDAO.ViewChannelMessages(channelID);
+
+                } catch (Exception e) {
+                    results.put("MessageError", "Unable to send message.");
+                }
+                break;
+            case "refresh":
+                try{
+                    channelID = (String) req.getSession().getAttribute("selectedchannel");
+                    messageList = MessageDAO.ViewChannelMessages(channelID);
+                } catch (Exception e) {
+                    results.put("ChannelError", "Not able to view channel.");
+                }
         }
 
 
-        if(formType != "view") {
+
             ArrayList<ChannelModel> channelList = new ArrayList<ChannelModel>();
             channelList = ChannelDAO.ViewUserChannels(user.getUserID());
             req.setAttribute("channelList", channelList);
-        }else{
+
             req.setAttribute("messageList", messageList);
-        }
+
 
         req.setAttribute("results", results);
         req.getRequestDispatcher("WEB-INF/project/homepage.jsp").forward(req, resp);
