@@ -56,16 +56,16 @@ public class User {
     }
 
     public static boolean isStudent(User user) {
-        return user.privileges == "student";
+        return user.privileges.equals("student");
     }
     public static boolean isTeacher(User user) {
-        return user.privileges == "teach";
+        return user.privileges.equals("teach");
     }
     public static boolean isAdmin(User user) {
-        return user.privileges == "admin";
+        return user.privileges.equals("admin");
     }
     public static boolean isActive(User user) {
-        return user.status == "active";
+        return user.status.equals("active");
     }
     public int getId() {
         return id;

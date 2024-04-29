@@ -42,6 +42,12 @@
 
                             </div>
                         </form>
+
+                        <div class="">
+                            <form method="post" action="${appURL}/delete">
+
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

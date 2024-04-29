@@ -1,11 +1,13 @@
 package edu.kirkwood.finalproject.DAO;
 
 import edu.kirkwood.finalproject.models.UserModel;
+import edu.kirkwood.learnx.model.User;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UserDAO extends Database{
 
@@ -65,8 +67,8 @@ public class UserDAO extends Database{
                 if(resultSet.next()) {
                     user.setUserID(resultSet.getString("UserID"));
                     user.setEmail(resultSet.getString("Email"));
-                    user.setDateCreated(resultSet.getTime("DateCreated"));
-                    user.setLastLoggedIn(resultSet.getTime("LastLoggedIn"));
+                    user.setDateCreated(resultSet.getTimestamp("DateCreated").toInstant());
+                    user.setLastLoggedIn(resultSet.getTimestamp("LastLoggedIn").toInstant());
                     user.setLanguage(resultSet.getString("Language"));
                 }
             }
@@ -126,4 +128,24 @@ public class UserDAO extends Database{
         return false;
     }
 
+    public static ArrayList<UserModel> AllUsers() {
+        ArrayList<UserModel> userList = new ArrayList<UserModel>();
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_get_all_users()}")
+        ) {
+            try(ResultSet resultSet = statement.executeQuery()) {
+                while(resultSet.next()) {
+                    UserModel user = new UserModel();
+                    user.setUserID(resultSet.getString("UserID"));
+                    user.setEmail(resultSet.getString("Email"));
+                    user.setLastLoggedIn(resultSet.getTimestamp("LastLoggedIn").toInstant());
+                    userList.add(user);
+                }
+            }
+        } catch(SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+        }
+        return userList;
+    }
 }

@@ -1,6 +1,5 @@
 <%@include file="/WEB-INF/project/header.jsp"%>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> <!-- chart.js -->
-<script src="../../js/project/charting.js"></script>
+<script src="${appURL}/js/project/adminnav.js"></script>
 <main class="text-bg-dark">
     <section class="pb-0 py-sm-5">
         <div class="container">
@@ -15,36 +14,70 @@
                                     ${DeleteError}
                             </div>
                         </c:if>
-                        <c:forEach items="${channelList}" var="channel">
-                            <div class="container">
-                                <div class="row border m-1 p-1">
-                                    <div class="col-md-6 text-start d-flex flex-column">
-                                        <div class="mt-2">
-                                            <strong>${channel.getChannelID()}</strong>
-                                        </div>
-                                        <h4 class="my-2">Users: ${channel.getUsersInChannel()}</h4>
-                                        <div class="mb-2">
-                                            <span class="me-2">Messages in the last ${hours} hours: ${channel.getMessages()}</span>
+                        <div class="d-flex justify-content-center">
+                            <button onclick="selectChannels()" id="channelbtn" class="btn btn-primary w-50 border-0 border-bottom border-right border-primary" style="background-color: transparent">
+                                Channels
+                            </button>
+                            <button onclick="selectUsers()" id="userbtn" class="btn btn-primary w-50 border-0 border-bottom border-left border-primary" style="background-color: transparent">
+                                Users
+                            </button>
+
+                        </div>
+
+                        <div class="overflow-auto" style="height: 70vh">
+                            <div style="display: none" id="channellist">
+                                <c:forEach items="${channelList}" var="channel">
+                                    <div class="container">
+                                        <div class="row border m-1 p-1">
+                                            <div class="col-md-6 text-start d-flex flex-column">
+                                                <div class="mt-2">
+                                                    <strong>${channel.getChannelID()}</strong>
+                                                </div>
+                                                <h4 class="my-2">Users: ${channel.getUsersInChannel()}</h4>
+                                                <div class="mb-2">
+                                                    <span class="me-2">Messages in the last ${hours} hours: ${channel.getMessages()}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 text-md-end text-sm-start d-flex justify-content-md-end align-items-md-center">
+                                                <div class="mb-2">
+                                                    <c:choose>
+                                                        <c:when test="${channel.isDeleted() eq false}">
+                                                            <form action="${appURL}/admin" method="post">
+                                                                <input type="hidden" name="formtype" value="delete">
+                                                                <button class="btn btn-danger" name="channelid" type="submit" value="${channel.getChannelID()}">Delete</button>
+                                                            </form>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <button class="btn btn-info" disabled name="channelid" type="button">Deleted</button>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 text-md-end text-sm-start d-flex justify-content-md-end align-items-md-center">
-                                        <div class="mb-2">
-                                            <c:choose>
-                                                <c:when test="${channel.isDeleted() eq false}">
-                                                    <form action="${appURL}/admin" method="post">
-                                                        <input type="hidden" name="formtype" value="delete">
-                                                        <button class="btn btn-danger" name="channelid" type="submit" value="${channel.getChannelID()}">Delete</button>
-                                                    </form>
-                                                </c:when>
-                                                <c:otherwise>
-                                                        <button class="btn btn-info" disabled name="channelid" type="button">Deleted</button>
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </div>
-                                    </div>
-                                </div>
+                                </c:forEach>
                             </div>
-                        </c:forEach>
+
+                            <div style="display: none" id="userlist">
+                                <c:forEach items="${userList}" var="user">
+                                    <div class="container">
+                                        <div class="row border m-1 p-1">
+                                            <div class="col-md-6 text-start d-flex flex-column">
+                                                <div class="mt-2">
+                                                    <strong>${user.getUserID()}</strong>
+                                                </div>
+                                                <h4 class="my-2">Last logged in: ${user.getLastLoggedIn()}</h4>
+                                                <div class="mb-2">
+                                                    <span class="me-2">Messages in the last ${hours} hours: ${user.getMessages()}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 <!-- Main content END -->

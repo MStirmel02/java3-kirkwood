@@ -7,9 +7,20 @@ public class UserModel {
     public String UserID;
     private String PasswordHash;
     private String Email;
-    private Time LastLoggedIn;
-    private Time DateCreated;
+    private Instant LastLoggedIn;
+    private Instant DateCreated;
     private String Language;
+
+    public int getMessages() {
+        return messages;
+    }
+
+    public void setMessages(int messages) {
+        this.messages = messages;
+    }
+
+    private int messages;
+
 
     public String getLanguage() {
         return Language;
@@ -19,19 +30,19 @@ public class UserModel {
         Language = language;
     }
 
-    public Time getLastLoggedIn() {
+    public Instant getLastLoggedIn() {
         return LastLoggedIn;
     }
 
-    public void setLastLoggedIn(Time lastLoggedIn) {
+    public void setLastLoggedIn(Instant lastLoggedIn) {
         LastLoggedIn = lastLoggedIn;
     }
 
-    public Time getDateCreated() {
+    public Instant getDateCreated() {
         return DateCreated;
     }
 
-    public void setDateCreated(Time dateCreated) {
+    public void setDateCreated(Instant dateCreated) {
         DateCreated = dateCreated;
     }
 
