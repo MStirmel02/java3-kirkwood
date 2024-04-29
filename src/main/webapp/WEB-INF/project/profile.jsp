@@ -1,6 +1,7 @@
 <%@include file="header.jsp" %>
 
 <main>
+
     <%@include file="/WEB-INF/project/profilesideheader.jsp"%>
     <div class="container">
         <div class="row">
@@ -44,31 +45,24 @@
                         </form>
 
                         <div class="">
+                            <button onclick="confirmDelete()" class="btn btn-danger mb-0" id="preconfirmbutton">Delete Account</button>
                             <form method="post" action="${appURL}/delete">
-
+                                <button type="submit" class="btn btn-danger mb-0" id="confirm" style="display: none;">Are you sure?</button>
                             </form>
+                            <script>
+                                function confirmDelete() {
+                                    var preconfirm = document.getElementById("preconfirmbutton");
+                                    var confirm = document.getElementById("confirm");
+                                    preconfirm.style.display = preconfirm.style.display = 'none';
+                                    confirm.style.display = confirm.style.display = '';
+                                }
+
+                            </script>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <%@include file="footer.jsp" %>

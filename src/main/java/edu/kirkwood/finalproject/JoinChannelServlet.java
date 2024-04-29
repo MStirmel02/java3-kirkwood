@@ -29,7 +29,6 @@ public class JoinChannelServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("inputChannel");
         String password1 = req.getParameter("inputPassword1");
-        String redirect = req.getParameter("redirect");
         Map<String, String> results = new HashMap<>();
         results.put("channel", id);
         results.put("password1", password1);

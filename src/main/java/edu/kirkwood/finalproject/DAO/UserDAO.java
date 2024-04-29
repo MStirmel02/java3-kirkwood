@@ -11,16 +11,6 @@ import java.util.ArrayList;
 
 public class UserDAO extends Database{
 
-    public static void main(String[] args) {
-        UserModel user = new UserModel();
-        user.setUserID("TestUser");
-        user.setPasswordHash("eb97d409396a3e5392936dad92b909da6f08d8c121a45e1f088fe9768b0c0339");
-
-        boolean result = false;
-
-        result = LoginUser(user);
-
-    }
     public static boolean SignUp(UserModel user) {
         try(Connection connection = getConnection();
             CallableStatement statement = connection.prepareCall("{CALL sp_create_user(?, ?)}")
@@ -147,5 +137,21 @@ public class UserDAO extends Database{
             System.out.println(e.getMessage());
         }
         return userList;
+    }
+
+
+    public static boolean DeleteUser(String userId) {
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_delete_user(?)}")
+        ) {
+            statement.setString(1, userId);
+
+            return statement.executeUpdate() >= 0;
+
+        } catch(SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 }
