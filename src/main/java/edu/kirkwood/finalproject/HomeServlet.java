@@ -62,9 +62,8 @@ public class HomeServlet extends HttpServlet {
                 try {
                     channelID = req.getParameter("createchannelid");
                     password = req.getParameter("createchannelpassword");
-                    if(!ChannelDAO.ChannelCreate(user.getUserID(), channelID, HashIt(password))) {
-                        results.put("ChannelError", "One or more inputs are incorrect.");
-                    };
+                    ChannelDAO.ChannelCreate(user.getUserID(), channelID, HashIt(password));
+
                 } catch (Exception e) {
                     results.put("ChannelError", "A channel with that name already exists.");
                 }
@@ -124,6 +123,9 @@ public class HomeServlet extends HttpServlet {
 
             ArrayList<ChannelModel> channelList = new ArrayList<ChannelModel>();
             channelList = ChannelDAO.ViewUserChannels(user.getUserID());
+
+            String test = (String) req.getSession().getAttribute("selectedchannel");
+            req.setAttribute("selectedchannel", test);
             req.setAttribute("channelList", channelList);
 
             req.setAttribute("messageList", messageList);

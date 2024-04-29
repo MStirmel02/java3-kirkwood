@@ -59,9 +59,18 @@
             <c:forEach items="${channelList}" var="channel">
                 <li class="nav-item justify-content-start mb-5">
                     <div class="dropdown dropend">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            ${channel.getChannelID()}
-                        </button>
+                        <c:choose>
+                            <c:when test="${selectedchannel.equals(channel.getChannelID())}">
+                                <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        ${channel.getChannelID()}
+                                </button>
+                            </c:when>
+                            <c:otherwise>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        ${channel.getChannelID()}
+                                </button>
+                            </c:otherwise>
+                        </c:choose>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li>
                                 <form action="${appURL}/home" method="post">
@@ -90,9 +99,9 @@
             </c:forEach>
         </ul>
     </div>
-    <div class="column text-bg-dark overflow-auto" id="rightColumn">
+    <div class="column text-bg-dark" id="rightColumn">
         <!--Messages-->
-        <div class="border-white border-1" style="height: 70vh">
+        <div class="border-white overflow-auto border-1" style="height: 69vh">
             <div class="container border border-bottom-0">
                 <c:if test="${not empty messageList}">
                     <c:forEach items="${messageList}" var="message">
@@ -113,30 +122,27 @@
         </div>
         <!--Text box-->
         <div class="msg-bottom mt-auto align-bottom">
-            <div class="input-group">
-                <form action="${appURL}/home" method="post">
-                    <input
-                            type="text"
-                            class="form-control text-bg-dark"
-                            name="messagecontent"
-                            placeholder="Write message..."
-                    />
-                    <input type="hidden" name="formtype" value="send">
-                    <span class="input-group-text send-icon">
+            <c:if test="${not empty selectedchannel}">
+                <div class="input-group">
+                    <form action="${appURL}/home" method="post">
+                        <input
+                                type="text"
+                                class="form-control text-bg-dark"
+                                name="messagecontent"
+                        />
+                        <input type="hidden" name="formtype" value="send">
                         <button class="btn btn-primary" type="submit">
-                            Send
+                            <fmt:message key="HomePage.SendMsg"></fmt:message>
                         </button>
-              </span>
-                </form>
-                <form action="${appURL}/home" method="post">
-                    <input type="hidden" name="formtype" value="refresh">
-                    <span class="input-group-text send-icon">
+                    </form>
+                    <form action="${appURL}/home" method="post">
+                        <input type="hidden" name="formtype" value="refresh">
                         <button class="btn btn-primary" type="submit">
-                            Refresh
+                            <fmt:message key="HomePage.Refresh"></fmt:message>
                         </button>
-              </span>
-                </form>
-            </div>
+                    </form>
+                </div>
+            </c:if>
         </div>
     </div>
 </div>

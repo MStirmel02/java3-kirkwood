@@ -9,13 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Some stuff">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DeleteAccountServlet.java" afterDir="false" />
+    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Some more stuff">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/landinggifs.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/JoinChannelServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/JoinChannelServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/SigningOutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/SigningOutServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/ChannelDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/ChannelDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translation.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translation_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translation_ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +26,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="Jsp File" />
         <option value="JavaScript File" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -345,7 +346,8 @@
       <workItem from="1713207061539" duration="15172000" />
       <workItem from="1713575784047" duration="18386000" />
       <workItem from="1713894660466" duration="33466000" />
-      <workItem from="1714331875292" duration="14412000" />
+      <workItem from="1714331875292" duration="14717000" />
+      <workItem from="1714403086968" duration="9007000" />
     </task>
     <task id="LOCAL-00001" summary="wed jan 27">
       <created>1705528062338</created>
@@ -616,7 +618,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714353489004</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Some more stuff">
+      <option name="closed" value="true" />
+      <created>1714360996217</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1714360996217</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -640,7 +650,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Progress report 3" />
     <MESSAGE value="Uncommented code that removes functionality from learnx signup page&#10;some project work" />
     <MESSAGE value="Save" />
     <MESSAGE value="Register and login actually work now" />
@@ -665,7 +674,8 @@
     <MESSAGE value="Assignment 9 redo" />
     <MESSAGE value="Proj work" />
     <MESSAGE value="Some stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some stuff" />
+    <MESSAGE value="Some more stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some more stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -691,19 +701,14 @@
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/AdminServlet.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DeleteAccountServlet.java</url>
           <line>22</line>
           <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

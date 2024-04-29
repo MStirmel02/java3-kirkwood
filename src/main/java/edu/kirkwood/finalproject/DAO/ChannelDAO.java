@@ -62,7 +62,7 @@ public class ChannelDAO extends Database {
             statement.setString(1, userID);
             statement.setString(2, channelID);
             statement.setString(3, channelHash);
-            return statement.execute();
+            return statement.executeUpdate() > 0;
         } catch(SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());
