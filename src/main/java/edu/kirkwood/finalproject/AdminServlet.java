@@ -5,6 +5,7 @@ import edu.kirkwood.finalproject.DAO.MessageDAO;
 import edu.kirkwood.finalproject.DAO.UserDAO;
 import edu.kirkwood.finalproject.models.ChannelModel;
 import edu.kirkwood.finalproject.models.UserModel;
+import edu.kirkwood.learnx.model.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -36,6 +37,7 @@ public class AdminServlet extends HttpServlet {
                 user.setMessages(msgCount);
             }
 
+            req.setAttribute("userid", currentUser.getUserID());
             req.setAttribute("hours", hours);
             req.setAttribute("userList", userList);
             req.setAttribute("channelList", channelList);
@@ -46,6 +48,8 @@ public class AdminServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        UserModel currentUser = (UserModel) req.getSession().getAttribute("currentUser");
+
         String formType = req.getParameter("formtype");
 
         switch (formType) {
@@ -76,21 +80,33 @@ public class AdminServlet extends HttpServlet {
                 try{
                     String channelID = req.getParameter("channelid");
                     if(!ChannelDAO.ChannelDelete(channelID)) {
-                        req.setAttribute("ChannelError", "Not able to remove channel");
+                        req.setAttribute("DeleteError", "Not able to remove channel");
                     }
-                    ArrayList<ChannelModel> channelList = ChannelDAO.AllChannels();
                     req.setAttribute("hours", req.getAttribute("hours"));
-                    req.setAttribute("channelList", channelList);
-                    req.setAttribute("userList", req.getAttribute("userList"));
+                    req.setAttribute("channelList", ChannelDAO.AllChannels());
+                    req.setAttribute("userList", UserDAO.AllUsers());
+                    req.setAttribute("selection", "channels");
                 } catch (Exception e) {
-                    req.setAttribute("ChannelError", "Not able to remove channel");
+                    req.setAttribute("DeleteError", "Not able to remove channel");
+                }
+                break;
+            case "deleteuser":
+                try{
+                    String userid = req.getParameter("deleteuserid");
+                    if(!UserDAO.DeleteUser(userid)) {
+                        req.setAttribute("DeleteError", "Not able to remove user");
+                    }
+                    req.setAttribute("hours", req.getAttribute("hours"));
+                    req.setAttribute("channelList", ChannelDAO.AllChannels());
+                    req.setAttribute("userList", UserDAO.AllUsers());
+                    req.setAttribute("selection", "users");
+                } catch (Exception e) {
+                    req.setAttribute("DeleteError", "Not able to remove user");
                 }
                 break;
         }
 
-
-
-
+        req.setAttribute("userid", currentUser.getUserID());
         req.getRequestDispatcher("WEB-INF/project/admin.jsp").forward(req, resp);
     }
 

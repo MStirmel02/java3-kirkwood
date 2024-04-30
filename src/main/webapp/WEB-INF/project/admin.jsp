@@ -14,15 +14,36 @@
                                     ${DeleteError}
                             </div>
                         </c:if>
+                        <c:if test="${not empty selection}">
+                            <c:choose>
+                                <c:when test="${selection eq 'channels'}">
+                                    <script>
+                                        $( document ).ready(function() {
+                                            selectChannels();
+                                        });
+                                    </script>
+                                </c:when>
+                                <c:when test="${selection eq 'users'}">
+                                    <script>
+                                        $( document ).ready(function() {
+                                            selectUsers();
+                                        });
+                                    </script>
+                                </c:when>
+                            </c:choose>
+                        </c:if>
+
                         <div class="d-flex justify-content-center">
                             <button onclick="selectChannels()" id="channelbtn" class="btn btn-primary w-50 border-0 border-bottom border-right border-primary" style="background-color: transparent">
                                 Channels
+                                <c:set var="selection" value="channels"/>
                             </button>
                             <button onclick="selectUsers()" id="userbtn" class="btn btn-primary w-50 border-0 border-bottom border-left border-primary" style="background-color: transparent">
                                 Users
+                                <c:set var="selection" value="users"/>
                             </button>
-
                         </div>
+
 
                         <div class="overflow-auto" style="height: 70vh">
                             <div style="display: none" id="channellist">
@@ -44,6 +65,7 @@
                                                         <c:when test="${channel.isDeleted() eq false}">
                                                             <form action="${appURL}/admin" method="post">
                                                                 <input type="hidden" name="formtype" value="delete">
+                                                                <input type="hidden" name="hours" value="${hours}">
                                                                 <button class="btn btn-danger" name="channelid" type="submit" value="${channel.getChannelID()}">Delete</button>
                                                             </form>
                                                         </c:when>
@@ -69,6 +91,17 @@
                                                 <h4 class="my-2">Last logged in: ${user.getLastLoggedIn()}</h4>
                                                 <div class="mb-2">
                                                     <span class="me-2">Messages in the last ${hours} hours: ${user.getMessages()}</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 text-md-end text-sm-start d-flex justify-content-md-end align-items-md-center">
+                                                <div class="mb-2">
+                                                    <c:if test="${user.getUserID() != userid}">
+                                                        <form action="${appURL}/admin" method="post">
+                                                            <input type="hidden" name="formtype" value="deleteuser">
+                                                            <input type="hidden" name="hours" value="${hours}">
+                                                            <button class="btn btn-danger" name="deleteuserid" type="submit" value="${user.getUserID()}">Delete</button>
+                                                        </form>
+                                                    </c:if>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,6 +131,7 @@
                                         <li class="list-inline-item mb-2">
                                             <input type="text" class="text-bg-dark" name="hours" value="${Hours}"/>
                                             <input type="hidden" name="formtype" value="filter"/>
+                                            <input type="hidden" name="selection" value="${selection}"/>
                                         </li>
                                     </ul>
                                     <div class="d-grid p-2 p-xl-0 bg-body text-center">

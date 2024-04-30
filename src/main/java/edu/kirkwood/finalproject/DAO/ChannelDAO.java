@@ -89,7 +89,7 @@ public class ChannelDAO extends Database {
             CallableStatement statement = connection.prepareCall("{CALL sp_delete_channel(?)}")
         ) {
             statement.setString(1, channelID);
-            return statement.executeUpdate() > 0;
+            return statement.executeUpdate() >= 0;
         } catch(SQLException e) {
             System.out.println("500, error with stored procedure");
             System.out.println(e.getMessage());

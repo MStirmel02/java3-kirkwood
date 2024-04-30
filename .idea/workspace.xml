@@ -9,15 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Fixes, cleanups and added email API verification + mass emailing functionality">
+    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Fixes, cleanups">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/project/Messages.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/project/channels.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/CommunicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/CommunicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/aboutus.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/aboutus.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/landing.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/landing.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/privacy-policy.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/privacy-policy.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/termsconditions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/termsconditions.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/landinggifs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/landinggifs.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/AdminServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/admin.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -437,7 +434,7 @@
       <workItem from="1714331875292" duration="14717000" />
       <workItem from="1714403086968" duration="23528000" />
       <workItem from="1714440345823" duration="1665000" />
-      <workItem from="1714442339855" duration="3817000" />
+      <workItem from="1714442339855" duration="8558000" />
     </task>
     <task id="LOCAL-00001" summary="wed jan 27">
       <created>1705528062338</created>
@@ -732,7 +729,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714438709485</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Fixes, cleanups">
+      <option name="closed" value="true" />
+      <created>1714446917574</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1714446917574</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -756,7 +761,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Save" />
     <MESSAGE value="Register and login actually work now" />
     <MESSAGE value="Flesh out DAOs, functionality to bring channel lists to the user's home page, created admin jsp and servlet, deleted unneeded commented code, some cleaning up" />
     <MESSAGE value="Fixed problems with learnx and added things I missed." />
@@ -781,7 +785,8 @@
     <MESSAGE value="Some stuff" />
     <MESSAGE value="Some more stuff" />
     <MESSAGE value="Fixes, cleanups and added email API verification + mass emailing functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes, cleanups and added email API verification + mass emailing functionality" />
+    <MESSAGE value="Fixes, cleanups" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes, cleanups" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
