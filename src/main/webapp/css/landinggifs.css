@@ -1,9 +1,14 @@
 .chattinggif {
-    background-image: url('../images/project/gifsc.gif');
-    background-repeat:repeat;
+    background-image: url('../images/project/Messages.gif');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
 }
 
 .joininggif {
-    background-image: url('../images/project/gifsc.gif');
-    background-repeat:repeat;
+    background-image: url('../images/project/channels.gif');
+    /*background-repeat:repeat;*/
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
 }

@@ -1,5 +1,6 @@
+<body class="text-bg-dark">
 <%@include file="/WEB-INF/project/header.jsp"%>
-<main>
+<main style="height: 80vh">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-md-12">
@@ -32,3 +33,4 @@
     </div>
 </main>
 <%@include file="/WEB-INF/project/footer.jsp"%>
+</body>

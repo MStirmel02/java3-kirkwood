@@ -2,29 +2,21 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="java3-kirkwood:war" />
+      <artifact name="java3-kirkwood:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Some more stuff">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/EmailingServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/models/JsonModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/EmailVerification.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/emailing.jsp" afterDir="false" />
+    <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Fixes, cleanups and added email API verification + mass emailing functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/demos/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/demos/JsonReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/ProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/ProfileServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/CommunicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/CommunicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/aboutus.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/aboutus.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/landing.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/landing.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profilesideheader.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profilesideheader.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/privacy-policy.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/privacy-policy.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/termsconditions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/termsconditions.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/landinggifs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/landinggifs.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,6 +143,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CommunicationService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.kirkwood.shared.CommunicationService" />
+      <module name="java3-kirkwood" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.kirkwood.shared.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EmailVerification" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.kirkwood.shared.EmailVerification" />
       <module name="java3-kirkwood" />
@@ -166,19 +171,6 @@
     </configuration>
     <configuration name="JobListingDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.kirkwood.learnx.data.JobListingDAO" />
-      <module name="java3-kirkwood" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.kirkwood.learnx.data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.kirkwood.learnx.data.UserDAO" />
       <module name="java3-kirkwood" />
       <extension name="coverage">
         <pattern>
@@ -296,21 +288,108 @@
         </option>
       </method>
     </configuration>
+    <configuration name="Azure Web App: java3-kirkwood-v2:mitchell-kw" type="com.microsoft.intellij.run.configuration.WebAppConfigurationType" factoryName="Azure Web App">
+      <option name="appServicePlanName" value="ASP-javaweb-8481" />
+      <option name="appServicePlanResourceGroupName" value="java-web" />
+      <option name="appSettingsKey" value="5d8960b2-0cef-4a24-8dfb-3a2d011f2ef3" />
+      <option name="appSettingsToRemove">
+        <set />
+      </option>
+      <option name="applicationLogLevel" value="Error" />
+      <option name="artifactIdentifier" value="$PROJECT_DIR$/target/java3-kirkwood-1.0-SNAPSHOT.war" />
+      <option name="azureArtifactType" value="Artifact" />
+      <option name="creatingAppServicePlan" value="false" />
+      <option name="creatingNew" value="false" />
+      <option name="creatingResGrp" value="false" />
+      <option name="deployToRoot" value="true" />
+      <option name="deployToSlot" value="false" />
+      <option name="enableApplicationLog" value="false" />
+      <option name="enableDetailedErrorMessage" value="false" />
+      <option name="enableFailedRequestTracing" value="false" />
+      <option name="enableWebServerLogging" value="false" />
+      <option name="newSlotConfigurationSource" />
+      <option name="newSlotName" />
+      <option name="openBrowserAfterDeployment" value="true" />
+      <option name="operatingSystem" value="linux" />
+      <option name="packaging" value="war" />
+      <option name="pricing" value="" />
+      <option name="projectBase" value="" />
+      <option name="projectType" value="" />
+      <option name="region" value="eastus" />
+      <option name="resourceGroup" value="java-web" />
+      <option name="slotName" />
+      <option name="slotPanelVisible" value="false" />
+      <option name="subscriptionId" value="d96ee9d0-0397-4767-bd3a-557a0dfb362d" />
+      <option name="targetName" value="" />
+      <option name="targetPath" value="" />
+      <option name="webAppContainer" value="tomcat 10.0" />
+      <option name="webAppId" value="/subscriptions/d96ee9d0-0397-4767-bd3a-557a0dfb362d/resourceGroups/java-web/providers/Microsoft.Web/sites/mitchell-kw" />
+      <option name="webAppJavaVersion" value="17" />
+      <option name="webAppName" value="mitchell-kw" />
+      <option name="webServerLogQuota" value="35" />
+      <option name="webServerRetentionPeriod" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="java3-kirkwood:war" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="com.microsoft.intellij.run.configuration.WebAppConfigurationType" factoryName="Azure Web App">
+      <option name="appServicePlanName" value="" />
+      <option name="appServicePlanResourceGroupName" value="" />
+      <option name="appSettingsKey" value="48b26c0f-005f-4f2f-ba91-6dace09d5d9a" />
+      <option name="appSettingsToRemove" />
+      <option name="applicationLogLevel" value="Error" />
+      <option name="artifactIdentifier" />
+      <option name="azureArtifactType" />
+      <option name="creatingAppServicePlan" value="false" />
+      <option name="creatingNew" value="false" />
+      <option name="creatingResGrp" value="false" />
+      <option name="deployToRoot" value="true" />
+      <option name="deployToSlot" value="false" />
+      <option name="enableApplicationLog" value="false" />
+      <option name="enableDetailedErrorMessage" value="false" />
+      <option name="enableFailedRequestTracing" value="false" />
+      <option name="enableWebServerLogging" value="false" />
+      <option name="newSlotConfigurationSource" />
+      <option name="newSlotName" />
+      <option name="openBrowserAfterDeployment" value="true" />
+      <option name="operatingSystem" />
+      <option name="packaging" />
+      <option name="pricing" value="" />
+      <option name="projectBase" value="" />
+      <option name="projectType" value="" />
+      <option name="region" value="" />
+      <option name="resourceGroup" value="" />
+      <option name="slotName" />
+      <option name="slotPanelVisible" value="false" />
+      <option name="subscriptionId" value="" />
+      <option name="targetName" value="" />
+      <option name="targetPath" value="" />
+      <option name="webAppContainer" />
+      <option name="webAppId" value="" />
+      <option name="webAppJavaVersion" />
+      <option name="webAppName" value="" />
+      <option name="webServerLogQuota" value="35" />
+      <option name="webServerRetentionPeriod" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.EmailVerification" />
       <item itemvalue="Application.JobListingDAO" />
       <item itemvalue="Application.edu.kirkwood.finalproject.DAO.UserDAO" />
-      <item itemvalue="Application.UserDAO" />
+      <item itemvalue="Application.CommunicationService" />
+      <item itemvalue="Azure Web App.Azure Web App: java3-kirkwood-v2:mitchell-kw" />
       <item itemvalue="Node.js.linegraph.js" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CommunicationService" />
         <item itemvalue="Application.EmailVerification" />
         <item itemvalue="Application.JobListingDAO" />
         <item itemvalue="Node.js.linegraph.js" />
         <item itemvalue="Application.edu.kirkwood.finalproject.DAO.UserDAO" />
-        <item itemvalue="Application.UserDAO" />
       </list>
     </recent_temporary>
   </component>
@@ -356,7 +435,9 @@
       <workItem from="1713575784047" duration="18386000" />
       <workItem from="1713894660466" duration="33466000" />
       <workItem from="1714331875292" duration="14717000" />
-      <workItem from="1714403086968" duration="22428000" />
+      <workItem from="1714403086968" duration="23528000" />
+      <workItem from="1714440345823" duration="1665000" />
+      <workItem from="1714442339855" duration="3817000" />
     </task>
     <task id="LOCAL-00001" summary="wed jan 27">
       <created>1705528062338</created>
@@ -643,7 +724,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714416588345</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Fixes, cleanups and added email API verification + mass emailing functionality">
+      <option name="closed" value="true" />
+      <created>1714438709485</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1714438709485</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +756,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Uncommented code that removes functionality from learnx signup page&#10;some project work" />
     <MESSAGE value="Save" />
     <MESSAGE value="Register and login actually work now" />
     <MESSAGE value="Flesh out DAOs, functionality to bring channel lists to the user's home page, created admin jsp and servlet, deleted unneeded commented code, some cleaning up" />
@@ -692,7 +780,8 @@
     <MESSAGE value="Proj work" />
     <MESSAGE value="Some stuff" />
     <MESSAGE value="Some more stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some more stuff" />
+    <MESSAGE value="Fixes, cleanups and added email API verification + mass emailing functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes, cleanups and added email API verification + mass emailing functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

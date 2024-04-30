@@ -11,7 +11,8 @@ import jakarta.servlet.http.HttpServletRequest;
 public class CommunicationService
 {
     public static void main(String[] args) {
-        sendEmail("marc", "Testing", "Testing again");
+
+        sendEmail("tconner2002@gmail.com", "Cheese", "Cheese");
     }
     private static EmailClient createEmailClient() {
         Dotenv dotenv = Dotenv.load();

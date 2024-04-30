@@ -7,23 +7,30 @@
         More information will be added as I think of things to add here.
     </div>
 
-    <div>
+    <div class="text-align-center">
         Here's what to expect from joining ChatApp:
     </div>
         <div class="row align-items-md-stretch">
             <div class="col-md-6">
                 <div class="h-100 p-5 text-bg-dark rounded-3 chattinggif">
                     <h2>Chat With Friends!</h2>
-                    <p>This will contain a gif of typing in the application when that functionality is completed.</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="h-100 p-5 text-bg-dark rounded-3 joininggif">
                     <h2>Join Channels!</h2>
-                    <p>This will contain a gif that shows how to join a channel when that functionality is completed.</p>
                 </div>
             </div>
         </div>
+
+    <div class="row align-items-md-stretch d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-bg-dark rounded-3 d-flex justify-content-center">
+                <a class="btn btn-warning" href="${appURL}/signingup">Sign Up Here!</a>
+            </div>
+        </div>
+    </div>
+
 </main>
 <%@include file="/WEB-INF/project/footer.jsp"%>
 </body>

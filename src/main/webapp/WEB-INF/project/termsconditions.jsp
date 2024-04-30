@@ -1,3 +1,4 @@
+<body class="text-bg-dark">
 <%@include file="/WEB-INF/project/header.jsp"%>
 <main>
     <div class="container">
@@ -58,3 +59,4 @@
     </div>
 </main>
 <%@include file="/WEB-INF/project/footer.jsp"%>
+</body>
