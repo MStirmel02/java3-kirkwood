@@ -1,5 +1,4 @@
 <%@include file="header.jsp" %>
-
 <body>
 <div class="sectioncontainer">
     <!-- d-flex flex-column flex-shrink-0 p-3 text-bg-dark align-items-start leftColumn -->

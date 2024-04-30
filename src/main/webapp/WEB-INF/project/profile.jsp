@@ -1,13 +1,12 @@
 <%@include file="header.jsp" %>
-
-<main>
+<body class="text-bg-dark">
+<main >
 
     <%@include file="/WEB-INF/project/profilesideheader.jsp"%>
-    <div class="container">
-        <div class="row">
-            <%@include file="/WEB-INF/project/profilesidebar.jsp"%>
-            <div class="col-xl-9">
-                <div class="card border rounded-3">
+    <div class="container text-bg-dark" style="height: 70vh">
+        <div class="d-flex justify-content-center">
+            <div>
+                <div class="card text-bg-dark rounded-3">
                     <div class="card-body">
 
                         <form action="${appURL}/profile" method="POST">
@@ -65,4 +64,5 @@
         </div>
     </div>
 </main>
+</body>
 <%@include file="footer.jsp" %>

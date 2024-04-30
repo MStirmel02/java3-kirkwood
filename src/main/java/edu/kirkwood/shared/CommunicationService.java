@@ -15,7 +15,7 @@ public class CommunicationService
     }
     private static EmailClient createEmailClient() {
         Dotenv dotenv = Dotenv.load();
-        String connectionString = dotenv.get("EMAIL_CONNECTION");
+        String connectionString = dotenv.get("EMAIL_CONN");
         EmailClient emailClient = new EmailClientBuilder()
                 .connectionString(connectionString)
                 .buildClient();

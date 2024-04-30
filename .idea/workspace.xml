@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="java3-kirkwood:war exploded" />
+      <artifact name="java3-kirkwood:war" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,13 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c7ea5d4-03af-4508-83da-0c58d89759bc" name="Changes" comment="Some more stuff">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/landinggifs.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/EmailingServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/models/JsonModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/EmailVerification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/emailing.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/ChannelDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/ChannelDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/translation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translation.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/translation_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translation_ru.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/demos/JsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/demos/JsonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/DAO/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/ProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/ProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/CommunicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/kirkwood/shared/CommunicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/homepage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/landing.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/landing.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profilesideheader.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/project/profilesideheader.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/landinggifs.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/landinggifs.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +35,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,7 +59,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -142,8 +151,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommunicationService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.kirkwood.shared.CommunicationService" />
+    <configuration name="EmailVerification" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.kirkwood.shared.EmailVerification" />
       <module name="java3-kirkwood" />
       <extension name="coverage">
         <pattern>
@@ -288,20 +297,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.EmailVerification" />
       <item itemvalue="Application.JobListingDAO" />
       <item itemvalue="Application.edu.kirkwood.finalproject.DAO.UserDAO" />
       <item itemvalue="Application.UserDAO" />
-      <item itemvalue="Application.CommunicationService" />
       <item itemvalue="Node.js.linegraph.js" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EmailVerification" />
         <item itemvalue="Application.JobListingDAO" />
         <item itemvalue="Node.js.linegraph.js" />
         <item itemvalue="Application.edu.kirkwood.finalproject.DAO.UserDAO" />
         <item itemvalue="Application.UserDAO" />
-        <item itemvalue="Application.CommunicationService" />
       </list>
     </recent_temporary>
   </component>
@@ -347,7 +356,7 @@
       <workItem from="1713575784047" duration="18386000" />
       <workItem from="1713894660466" duration="33466000" />
       <workItem from="1714331875292" duration="14717000" />
-      <workItem from="1714403086968" duration="9007000" />
+      <workItem from="1714403086968" duration="22428000" />
     </task>
     <task id="LOCAL-00001" summary="wed jan 27">
       <created>1705528062338</created>
@@ -626,7 +635,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714360996217</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Some more stuff">
+      <option name="closed" value="true" />
+      <created>1714416588345</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1714416588345</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -692,7 +709,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/ProfileServlet.java</url>
-          <line>30</line>
+          <line>31</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -709,6 +726,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/HomeServlet.java</url>
           <line>42</line>
           <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/edu/kirkwood/finalproject/EmailingServlet.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

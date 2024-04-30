@@ -154,4 +154,21 @@ public class UserDAO extends Database{
         }
         return false;
     }
+
+    public static ArrayList<String> getEmails() {
+        ArrayList<String> emailList = new ArrayList<String>();
+        try(Connection connection = getConnection();
+            CallableStatement statement = connection.prepareCall("{CALL sp_get_emails()}")
+        ) {
+            try(ResultSet resultSet = statement.executeQuery()) {
+                while(resultSet.next()) {
+                    emailList.add(resultSet.getString("Email"));
+                }
+            }
+        } catch(SQLException e) {
+            System.out.println("500, error with stored procedure");
+            System.out.println(e.getMessage());
+        }
+        return emailList;
+    }
 }

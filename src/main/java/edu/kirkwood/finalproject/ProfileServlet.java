@@ -4,6 +4,7 @@ import edu.kirkwood.finalproject.DAO.ChannelDAO;
 import edu.kirkwood.finalproject.DAO.UserDAO;
 import edu.kirkwood.finalproject.models.ChannelModel;
 import edu.kirkwood.finalproject.models.UserModel;
+import edu.kirkwood.shared.EmailVerification;
 import edu.kirkwood.shared.MyValidator;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,10 +35,14 @@ public class ProfileServlet extends HttpServlet {
         String language = req.getParameter("inputLanguage");
 
         if(!email.equals(user.getEmail())) {
-            if(!UserDAO.UpdateEmail(email, user.getUserID())) {
-                req.setAttribute("EmailError", "Email not updated.");
+            if(EmailVerification.VerifyEmail(email)) {
+                if(!UserDAO.UpdateEmail(email, user.getUserID())) {
+                    req.setAttribute("EmailError", "Email not updated.");
+                } else {
+                    user.setEmail(email);
+                }
             } else {
-                user.setEmail(email);
+                req.setAttribute("EmailError", "This email is not valid.");
             }
         }
         if(!language.equals(user.getLanguage())) {

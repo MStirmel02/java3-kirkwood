@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container text-bg-dark">
     <div class="row mb-4">
         <div class="col-12">
-            <div class="card">
-                <div class="card-body">
+            <div class="card text-bg-dark">
+                <div class="card-body d-flex justify-content-center">
                     <ul class="list-inline">
                         <li class="list-inline-item">Account Created: ${currentUser.getDateCreated()}</li>
                         <li class="list-inline-item">Last Logged In: ${currentUser.getLastLoggedIn()}</li>

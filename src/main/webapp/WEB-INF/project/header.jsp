@@ -2,8 +2,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
-<html lang="en" class="data-bs-theme-dark">
-<head>
+<head lang="en" class="data-bs-theme-dark">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
@@ -30,6 +29,7 @@
                         <c:set value="MStirmel" var="admin"></c:set>
                         <c:if test="${sessionScope.currentUser.getUserID() eq admin}">
                             <li><a href="${appURL}/admin" class="nav-link px-2 text-white">Admin</a></li>
+                            <li><a href="${appURL}/massmail" class="nav-link px-2 text-white">Emailing</a></li>
                         </c:if>
                     </c:if>
                 </ul>
